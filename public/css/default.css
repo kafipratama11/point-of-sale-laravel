@@ -1,0 +1,32 @@
+*{
+      font-family: "Poppins", sans-serif;
+}
+
+.background-primary-hover:hover{
+      background-color: #EBF4F6;
+}
+
+.background-primary{
+      background-color: #5370e8!important;
+}
+
+@media screen and (max-width: 900px) {
+      .sidebar {
+            display: none;
+      }
+      .hamburger-menu{
+            display: flex!important;
+      }
+}
+
+@media screen and (min-width: 900px) {
+      .hamburger-menu{
+            display: none!important;
+      }
+}
+
+@media screen and (min-width: 670px) {
+      .container-card-dashboard{
+            display: flex!important;
+      }
+}
