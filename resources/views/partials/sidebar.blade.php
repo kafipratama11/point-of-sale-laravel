@@ -19,7 +19,13 @@
                   <a href="{{ url('/transaction') }}" class="link-underline link-underline-opacity-0">
                         <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('transaction') ? 'active' : '' }}">
                               <i class="bi bi-cash-stack"></i>
-                              <div>Transaction</div>
+                              <div>Transaction History</div>
+                        </div>
+                  </a>
+                  <a href="{{ url('/new-transaction') }}" class="link-underline link-underline-opacity-0">
+                        <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('new-transaction') ? 'active' : '' }}">
+                              <i class="bi bi-cart"></i>
+                              <div>New Transaction</div>
                         </div>
                   </a>
                   <a href="{{ url('/products') }}" class="link-underline link-underline-opacity-0">

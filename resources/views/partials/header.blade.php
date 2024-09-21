@@ -15,6 +15,7 @@
                         {{ request()->is('overview') ? 'Overview' : '' }}
                         {{ request()->is('products') ? 'Products' : '' }}
                         {{ request()->is('transaction') ? 'Transaction' : '' }}
+                        {{ request()->is('new-transaction') ? 'New Transaction' : '' }}
                         {{ request()->is('purchase-request') ? 'Purchase Request' : '' }}
                         {{ request()->is('purchase-order') ? 'Purchase Order' : '' }}
                         {{ request()->is('purchase-receive') ? 'Purchase Received' : '' }}

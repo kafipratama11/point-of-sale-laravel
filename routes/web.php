@@ -26,6 +26,9 @@ Route::get('/products', function () {
 Route::get('/transaction', function () {
     return view('admin.transaction');
 });
+Route::get('/new-transaction', function () {
+    return view('admin.new-transaction');
+});
 Route::get('/purchase-receive', function () {
     return view('admin.receive-order');
 });
