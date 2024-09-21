@@ -11,7 +11,7 @@
             </div>
             <div class="vstack gap-2">
                   <a href="{{ url('/overview') }}" class="link-underline link-underline-opacity-0">
-                        <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('overview') ? 'active' : '' }}">
+                        <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('overview') ? 'active ps-2' : '' }}">
                               <i class="bi bi-grid-1x2"></i>
                               <div>Dashboard</div>
                         </div>

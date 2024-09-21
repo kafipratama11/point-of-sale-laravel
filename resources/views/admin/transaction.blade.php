@@ -14,9 +14,9 @@
                   <div class="bg-white rounded border">
                         <div class="px-3 py-4 rounded">
                               <div class="fw-medium mb-2">Transactions</div>
-                              <div class="d-flex">
+                              <div class="container-heading-table">
                                     <div class="me-auto">
-                                          <div class="input-group search-products">
+                                          <div class="input-group search-products mb-1">
                                                 <span class="input-group-text bg-white border-end-0" id="basic-addon1"><i class="bi bi-search"></i></span>
                                                 <input type="text" class="form-control border-start-0" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1" style="font-size: 14px">
                                           </div>

@@ -14,9 +14,9 @@
                   <div class="bg-white rounded border">
                         <div class="px-3 py-4 rounded">
                               <div class="fw-medium mb-2">Inventory Items</div>
-                              <div class="d-flex">
+                              <div class="container-heading-table">
                                     <div class="me-auto">
-                                          <div class="input-group search-products">
+                                          <div class="input-group search-products mb-1">
                                                 <span class="input-group-text bg-white border-end-0" id="basic-addon1"><i class="bi bi-search"></i></span>
                                                 <input type="text" class="form-control border-start-0" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1" style="font-size: 14px">
                                           </div>
@@ -123,12 +123,10 @@
                                                       <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" style="height: 15px; width: 15px;">
                                                 </div>
                                           </th>
-                                          <th scope="col">Borrowing Code</th>
-                                          <th scope="col">Product Code</th>
-                                          <th scope="col">Product Name</th>
-                                          <th scope="col">Quantity</th>
-                                          <th scope="col">Loan date</th>
-                                          <th scope="col">Status</th>
+                                          <th scope="col">Member ID</th>
+                                          <th scope="col">Member Name</th>
+                                          <th scope="col">Phone</th>
+                                          <th scope="col">Level</th>
                                           <th scope="col">Action</th>
                                     </tr>
                               </thead>
@@ -142,17 +140,10 @@
                                                       </label>
                                                 </div>
                                           </th>
-                                          <td>B020820240001</td>
-                                          <td>2FNS-01-003-FM</td>
-                                          <td>KUAS BLP 3"</td>
-                                          <td>5</td>
-                                          <td>12 Juli 2024</td>
-                                          <td>
-                                                <div class="d-flex gap-2 align-items-center text-success">
-                                                      <i class="bi bi-circle-fill" style="font-size: 10px"></i>
-                                                      <div class="fw-medium">Borrowed</div>
-                                                </div>
-                                          </td>
+                                          <td>MBR-JD-001</td>
+                                          <td>John Doe</td>
+                                          <td>085174140161</td>
+                                          <td>Bronze</td>
                                           <td>
                                                 <a href="" class="link-underline link-underline-opacity-0 link-secondary">
                                                       <i class="bi bi-three-dots" style="font-size: 20px"></i>

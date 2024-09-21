@@ -30,3 +30,8 @@
             display: flex!important;
       }
 }
+@media screen and (min-width: 600px) {
+      .container-heading-table{
+            display: flex!important;
+      }
+}

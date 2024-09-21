@@ -8,29 +8,15 @@
             @include('partials.header')
             <div class="px-4 d-flex mt-3">
                   <div class="me-auto fw-medium">Dashboard</div>
-                  <button type="button" class="btn background-primary text-white btn-add"><i class="bi bi-plus-lg"></i> Add Product</button>
-            </div>
-            <div class="px-4 mt-3 d-flex gap-3">
-                  <div class="card w-100 border-0">
-                        <div class="card-body"></div>
-                  </div>
-                  <div class="card w-100 border-0">
-                        <div class="card-body"></div>
-                  </div>
-                  <div class="card w-100 border-0">
-                        <div class="card-body"></div>
-                  </div>
-                  <div class="card w-100 border-0">
-                        <div class="card-body"></div>
-                  </div>
+                  <button type="button" class="btn background-primary text-white btn-add"><i class="bi bi-plus-lg"></i> New Request</button>
             </div>
             <div class="px-4 mt-3">
                   <div class="bg-white rounded border">
                         <div class="px-3 py-4 rounded">
                               <div class="fw-medium mb-2">Inventory Items</div>
-                              <div class="d-flex">
+                              <div class="container-heading-table">
                                     <div class="me-auto">
-                                          <div class="input-group search-products">
+                                          <div class="input-group search-products mb-1">
                                                 <span class="input-group-text bg-white border-end-0" id="basic-addon1"><i class="bi bi-search"></i></span>
                                                 <input type="text" class="form-control border-start-0" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1" style="font-size: 14px">
                                           </div>
@@ -137,11 +123,10 @@
                                                       <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" style="height: 15px; width: 15px;">
                                                 </div>
                                           </th>
-                                          <th scope="col">Borrowing Code</th>
+                                          <th scope="col">PR Number</th>
                                           <th scope="col">Product Code</th>
                                           <th scope="col">Product Name</th>
                                           <th scope="col">Quantity</th>
-                                          <th scope="col">Loan date</th>
                                           <th scope="col">Status</th>
                                           <th scope="col">Action</th>
                                     </tr>
@@ -156,17 +141,11 @@
                                                       </label>
                                                 </div>
                                           </th>
-                                          <td>B020820240001</td>
+                                          <td>PR-0924-001</td>
                                           <td>2FNS-01-003-FM</td>
                                           <td>KUAS BLP 3"</td>
                                           <td>5</td>
-                                          <td>12 Juli 2024</td>
-                                          <td>
-                                                <div class="d-flex gap-2 align-items-center text-success">
-                                                      <i class="bi bi-circle-fill" style="font-size: 10px"></i>
-                                                      <div class="fw-medium">Borrowed</div>
-                                                </div>
-                                          </td>
+                                          <td>Confirmed</td>
                                           <td>
                                                 <a href="" class="link-underline link-underline-opacity-0 link-secondary">
                                                       <i class="bi bi-three-dots" style="font-size: 20px"></i>
