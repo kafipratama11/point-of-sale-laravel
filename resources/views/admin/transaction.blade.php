@@ -115,129 +115,131 @@
                               </div>
                         </div>
                   </div>
-                  <table class="table table-hover" style="font-size: 12px">
-                        <thead class="table-light">
-                              <tr>
-                                    <th scope="col">
-                                          <div class="form-check form-check-inline d-flex w-100 h-100 align items-center">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" style="height: 15px; width: 15px;">
-                                          </div>
-                                    </th>
-                                    <th scope="col">Transaction Number</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Total</th>
-                                    <th scope="col">Action</th>
-                              </tr>
-                        </thead>
-                        <tbody>
-                              <tr>
-                                    <th scope="row">
-                                          <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                <label class="form-check-label" for="flexCheckDefault">
-                                                      1
-                                                </label>
-                                          </div>
-                                    </th>
-                                    <td>
-                                          <a class="link-offset-2 link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="" data-bs-toggle="modal" data-bs-target="#modalDetailTransaction">TRX-20240914-001</a>
-                                    </td>
-                                    <td>3 September 2024</td>
-                                    <td>14</td>
-                                    <td>Rp132.500,00</td>
-                                    <td>
-                                          <a href="" class="link-underline link-underline-opacity-0 link-secondary">
-                                                <i class="bi bi-three-dots" style="font-size: 20px"></i>
-                                          </a>
-                                    </td>
-                                    <div class="modal fade" id="modalDetailTransaction" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                          <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
-                                                <div class="modal-content">
-                                                      <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">TRX-20240914-001</h1>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                      </div>
-                                                      <div class="modal-body px-0">
-                                                            <div>
+                  <div class="overflow-auto">
+                        <table class="table table-hover" style="font-size: 12px">
+                              <thead class="table-light">
+                                    <tr>
+                                          <th scope="col">
+                                                <div class="form-check form-check-inline d-flex w-100 h-100 align items-center">
+                                                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" style="height: 15px; width: 15px;">
+                                                </div>
+                                          </th>
+                                          <th scope="col">Transaction Number</th>
+                                          <th scope="col">Date</th>
+                                          <th scope="col">Quantity</th>
+                                          <th scope="col">Total</th>
+                                          <th scope="col">Action</th>
+                                    </tr>
+                              </thead>
+                              <tbody>
+                                    <tr>
+                                          <th scope="row">
+                                                <div class="form-check">
+                                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                      <label class="form-check-label" for="flexCheckDefault">
+                                                            1
+                                                      </label>
+                                                </div>
+                                          </th>
+                                          <td>
+                                                <a class="link-offset-2 link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="" data-bs-toggle="modal" data-bs-target="#modalDetailTransaction">TRX-20240914-001</a>
+                                          </td>
+                                          <td>3 September 2024</td>
+                                          <td>14</td>
+                                          <td>Rp132.500,00</td>
+                                          <td>
+                                                <a href="" class="link-underline link-underline-opacity-0 link-secondary">
+                                                      <i class="bi bi-three-dots" style="font-size: 20px"></i>
+                                                </a>
+                                          </td>
+                                          <div class="modal fade" id="modalDetailTransaction" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg">
+                                                      <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                  <h1 class="modal-title fs-5" id="exampleModalLabel">TRX-20240914-001</h1>
+                                                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body px-0">
                                                                   <div>
-                                                                        <div class="mb-2 ps-3" style="font-size: 14px">
-                                                                              <div class="d-flex gap-3">
-                                                                                    <div style="width: 130px">No. Transaction</div>
-                                                                                    <div>:</div>
-                                                                                    <div>TRX-20240914-001</div>
+                                                                        <div>
+                                                                              <div class="mb-2 ps-3" style="font-size: 14px">
+                                                                                    <div class="d-flex gap-3">
+                                                                                          <div style="width: 130px">No. Transaction</div>
+                                                                                          <div>:</div>
+                                                                                          <div>TRX-20240914-001</div>
+                                                                                    </div>
+                                                                                    <div class="d-flex gap-3">
+                                                                                          <div style="width: 130px">Date</div>
+                                                                                          <div>:</div>
+                                                                                          <div>03 September 2024</div>
+                                                                                    </div>
+                                                                                    <div class="d-flex gap-3">
+                                                                                          <div style="width: 130px">Payment Method</div>
+                                                                                          <div>:</div>
+                                                                                          <div>Cash</div>
+                                                                                    </div>
+                                                                                    <div class="d-flex gap-3">
+                                                                                          <div style="width: 130px">Member</div>
+                                                                                          <div>:</div>
+                                                                                          <div>-</div>
+                                                                                    </div>
                                                                               </div>
-                                                                              <div class="d-flex gap-3">
-                                                                                    <div style="width: 130px">Date</div>
-                                                                                    <div>:</div>
-                                                                                    <div>03 September 2024</div>
-                                                                              </div>
-                                                                              <div class="d-flex gap-3">
-                                                                                    <div style="width: 130px">Payment Method</div>
-                                                                                    <div>:</div>
-                                                                                    <div>Cash</div>
-                                                                              </div>
-                                                                              <div class="d-flex gap-3">
-                                                                                    <div style="width: 130px">Member</div>
-                                                                                    <div>:</div>
-                                                                                    <div>-</div>
-                                                                              </div>
+                                                                              <ul class="list-group list-group-flush" style="font-size: 14px">
+                                                                                    <li class="list-group-item d-flex gap-4 fw-semibold">
+                                                                                          <div class="me-auto">Product Name</div>
+                                                                                          <div>Qty</div>
+                                                                                          <div style="min-width: 150px">Price</div>
+                                                                                    </li>
+                                                                                    <li class="list-group-item d-flex gap-4">
+                                                                                          <div class="me-auto">Teh Botol Sosro</div>
+                                                                                          <div>3</div>
+                                                                                          <div style="min-width: 150px">Rp10.500,00</div>
+                                                                                    </li>
+                                                                                    <li class="list-group-item d-flex gap-4">
+                                                                                          <div class="me-auto">Ultramilk 1L Coklat</div>
+                                                                                          <div>6</div>
+                                                                                          <div style="min-width: 150px">Rp100.500,00</div>
+                                                                                    </li>
+                                                                                    <li class="list-group-item d-flex gap-4">
+                                                                                          <div class="me-auto">Indomie Soto</div>
+                                                                                          <div>1</div>
+                                                                                          <div style="min-width: 150px">Rp3.500,00</div>
+                                                                                    </li>
+                                                                                    <li class="list-group-item d-flex gap-4 fw-medium">
+                                                                                          <div class="me-auto">
+                                                                                                <div>Subtotal</div>
+                                                                                                <div>Discount</div>
+                                                                                                <div>Tax</div>
+                                                                                                <div>Total</div>
+                                                                                          </div>
+                                                                                          <div>
+                                                                                                <div>:</div>
+                                                                                                <div>:</div>
+                                                                                                <div>:</div>
+                                                                                                <div>:</div>
+                                                                                          </div>
+                                                                                          <div style="min-width: 150px">
+                                                                                                <div>Rp113.500,00</div>
+                                                                                                <div>Rp13.500,00</div>
+                                                                                                <div>Rp3.500,00</div>
+                                                                                                <div>Rp103.500,00</div>
+                                                                                          </div>
+                                                                                    </li>
+                                                                              </ul>
                                                                         </div>
-                                                                        <ul class="list-group list-group-flush" style="font-size: 14px">
-                                                                              <li class="list-group-item d-flex gap-4 fw-semibold">
-                                                                                    <div class="me-auto">Product Name</div>
-                                                                                    <div>Qty</div>
-                                                                                    <div style="min-width: 150px">Price</div>
-                                                                              </li>
-                                                                              <li class="list-group-item d-flex gap-4">
-                                                                                    <div class="me-auto">Teh Botol Sosro</div>
-                                                                                    <div>3</div>
-                                                                                    <div style="min-width: 150px">Rp10.500,00</div>
-                                                                              </li>
-                                                                              <li class="list-group-item d-flex gap-4">
-                                                                                    <div class="me-auto">Ultramilk 1L Coklat</div>
-                                                                                    <div>6</div>
-                                                                                    <div style="min-width: 150px">Rp100.500,00</div>
-                                                                              </li>
-                                                                              <li class="list-group-item d-flex gap-4">
-                                                                                    <div class="me-auto">Indomie Soto</div>
-                                                                                    <div>1</div>
-                                                                                    <div style="min-width: 150px">Rp3.500,00</div>
-                                                                              </li>
-                                                                              <li class="list-group-item d-flex gap-4 fw-medium">
-                                                                                    <div class="me-auto">
-                                                                                          <div>Subtotal</div>
-                                                                                          <div>Discount</div>
-                                                                                          <div>Tax</div>
-                                                                                          <div>Total</div>
-                                                                                    </div>
-                                                                                    <div>
-                                                                                          <div>:</div>
-                                                                                          <div>:</div>
-                                                                                          <div>:</div>
-                                                                                          <div>:</div>
-                                                                                    </div>
-                                                                                    <div style="min-width: 150px">
-                                                                                          <div>Rp113.500,00</div>
-                                                                                          <div>Rp13.500,00</div>
-                                                                                          <div>Rp3.500,00</div>
-                                                                                          <div>Rp103.500,00</div>
-                                                                                    </div>
-                                                                              </li>
-                                                                        </ul>
                                                                   </div>
                                                             </div>
-                                                      </div>
-                                                      <div class="modal-footer">
-                                                            <button type="button" class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-modal-submit background-primary text-white">Simpan perubahan</button>
+                                                            <div class="modal-footer">
+                                                                  <button type="button" class="btn btn-modal-close" data-bs-dismiss="modal">Close</button>
+                                                                  <button type="button" class="btn btn-modal-submit background-primary text-white">Simpan perubahan</button>
+                                                            </div>
                                                       </div>
                                                 </div>
                                           </div>
-                                    </div>
-                              </tr>
-                        </tbody>
-                  </table>
+                                    </tr>
+                              </tbody>
+                        </table>
+                  </div>
             </div>
       </div>
 </div>

@@ -23,6 +23,14 @@
       .hamburger-menu{
             display: none!important;
       }
+      .accordin-transaction{
+            display: none!important;
+      }
+}
+@media screen and (max-width: 900px) {
+      .transaction-container{
+            display: none!important;
+      }
 }
 
 @media screen and (min-width: 670px) {

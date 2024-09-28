@@ -155,68 +155,70 @@
                               </div>
                         </div>
                   </div>
-                  <table class="table table-hover" style="font-size: 12px">
-                        <thead class="table-light">
-                              <tr>
-                                    <th scope="col">
-                                          <div class="form-check form-check-inline d-flex w-100 h-100 align items-center">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" style="height: 15px; width: 15px;">
-                                          </div>
-                                    </th>
-                                    <th scope="col">Product Code</th>
-                                    <th scope="col">Product Name</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Category</th>
-                                    <th scope="col">Price</th>
-                              </tr>
-                        </thead>
-                        <tbody>
-                              <tr>
-                                    <th scope="row">
-                                          <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                <label class="form-check-label" for="flexCheckDefault">
-                                                      1
-                                                </label>
-                                          </div>
-                                    </th>
-                                    <td>
-                                          <a class="link-offset-2 link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="" data-bs-toggle="modal" data-bs-target="#modalDetailProduct">KNG-SL-001</a>
-                                    </td>
-                                    <td>SABUN LIFEBOY</td>
-                                    <td>5</td>
-                                    <td>KNG</td>
-                                    <td>Rp12.700,00</td>
-                                    <div class="modal fade" id="modalDetailProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                          <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-                                                <div class="modal-content">
-                                                      <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">TRX-20240914-001</h1>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                      </div>
-                                                      <div class="modal-body">
-                                                            <div style='text-align: center; gap: 3px;'>
-                                                                  <!-- insert your custom barcode setting your data in the GET parameter "data" -->
-                                                                  @foreach ($sku as $item)
-                                                                  <img alt='Barcode Generator TEC-IT' src='https://barcode.tec-it.com/barcode.ashx?data={{$item}}&translate-esc=on' />
-                                                                  @endforeach
+                  <div class="overflow-auto">
+                        <table class="table table-hover" style="font-size: 12px">
+                              <thead class="table-light">
+                                    <tr>
+                                          <th scope="col">
+                                                <div class="form-check form-check-inline d-flex w-100 h-100 align items-center">
+                                                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" style="height: 15px; width: 15px;">
+                                                </div>
+                                          </th>
+                                          <th scope="col">Product Code</th>
+                                          <th scope="col">Product Name</th>
+                                          <th scope="col">Quantity</th>
+                                          <th scope="col">Category</th>
+                                          <th scope="col">Price</th>
+                                    </tr>
+                              </thead>
+                              <tbody>
+                                    <tr>
+                                          <th scope="row">
+                                                <div class="form-check">
+                                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                      <label class="form-check-label" for="flexCheckDefault">
+                                                            1
+                                                      </label>
+                                                </div>
+                                          </th>
+                                          <td>
+                                                <a class="link-offset-2 link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="" data-bs-toggle="modal" data-bs-target="#modalDetailProduct">KNG-SL-001</a>
+                                          </td>
+                                          <td>SABUN LIFEBOY</td>
+                                          <td>5</td>
+                                          <td>KNG</td>
+                                          <td>Rp12.700,00</td>
+                                          <div class="modal fade" id="modalDetailProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                                                      <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                  <h1 class="modal-title fs-5" id="exampleModalLabel">TRX-20240914-001</h1>
+                                                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
-                                                            <div class="d-flex gap-2 mt-4">
-                                                                  <div>Product Name</div>
-                                                                  <div>:</div>
-                                                                  <div>SABUN LIFEBOY</div>
+                                                            <div class="modal-body">
+                                                                  <div style='text-align: center; gap: 3px;'>
+                                                                        <!-- insert your custom barcode setting your data in the GET parameter "data" -->
+                                                                        @foreach ($sku as $item)
+                                                                        <img alt='Barcode Generator TEC-IT' src='https://barcode.tec-it.com/barcode.ashx?data={{$item}}&translate-esc=on' />
+                                                                        @endforeach
+                                                                  </div>
+                                                                  <div class="d-flex gap-2 mt-4">
+                                                                        <div>Product Name</div>
+                                                                        <div>:</div>
+                                                                        <div>SABUN LIFEBOY</div>
+                                                                  </div>
                                                             </div>
-                                                      </div>
-                                                      <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                                            <div class="modal-footer">
+                                                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                  <button type="button" class="btn btn-primary">Save changes</button>
+                                                            </div>
                                                       </div>
                                                 </div>
                                           </div>
-                                    </div>
-                              </tr>
-                        </tbody>
-                  </table>
+                                    </tr>
+                              </tbody>
+                        </table>
+                  </div>
             </div>
       </div>
 </div>

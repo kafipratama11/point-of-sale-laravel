@@ -41,7 +41,7 @@
                               </div>
                         </div>
                   </div>
-                  <div>
+                  {{-- <div>
                         <div class="card px-3 border-0">
                               <div class="card-body">
                                     <div class="profile-picture-setting d-flex justify-content-center align-items-center">
@@ -49,7 +49,7 @@
                                     </div>
                               </div>
                         </div>
-                  </div>
+                  </div> --}}
             </div>
       </div>
 </div>

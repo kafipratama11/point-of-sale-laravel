@@ -115,45 +115,47 @@
                                     </div>
                               </div>
                         </div>
-                        <table class="table table-hover" style="font-size: 12px">
-                              <thead class="table-light">
-                                    <tr>
-                                          <th scope="col">
-                                                <div class="form-check form-check-inline d-flex w-100 h-100 align items-center">
-                                                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" style="height: 15px; width: 15px;">
-                                                </div>
-                                          </th>
-                                          <th scope="col">PR Number</th>
-                                          <th scope="col">Product Code</th>
-                                          <th scope="col">Product Name</th>
-                                          <th scope="col">Quantity</th>
-                                          <th scope="col">Status</th>
-                                          <th scope="col">Action</th>
-                                    </tr>
-                              </thead>
-                              <tbody>
-                                    <tr>
-                                          <th scope="row">
-                                                <div class="form-check">
-                                                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                      <label class="form-check-label" for="flexCheckDefault">
-                                                            1
-                                                      </label>
-                                                </div>
-                                          </th>
-                                          <td>PR-0924-001</td>
-                                          <td>2FNS-01-003-FM</td>
-                                          <td>KUAS BLP 3"</td>
-                                          <td>5</td>
-                                          <td>Confirmed</td>
-                                          <td>
-                                                <a href="" class="link-underline link-underline-opacity-0 link-secondary">
-                                                      <i class="bi bi-three-dots" style="font-size: 20px"></i>
-                                                </a>
-                                          </td>
-                                    </tr>
-                              </tbody>
-                        </table>
+                        <div class="overflow-auto">
+                              <table class="table table-hover" style="font-size: 12px">
+                                    <thead class="table-light">
+                                          <tr>
+                                                <th scope="col">
+                                                      <div class="form-check form-check-inline d-flex w-100 h-100 align items-center">
+                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" style="height: 15px; width: 15px;">
+                                                      </div>
+                                                </th>
+                                                <th scope="col">PR Number</th>
+                                                <th scope="col">Product Code</th>
+                                                <th scope="col">Product Name</th>
+                                                <th scope="col">Quantity</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Action</th>
+                                          </tr>
+                                    </thead>
+                                    <tbody>
+                                          <tr>
+                                                <th scope="row">
+                                                      <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                            <label class="form-check-label" for="flexCheckDefault">
+                                                                  1
+                                                            </label>
+                                                      </div>
+                                                </th>
+                                                <td>PR-0924-001</td>
+                                                <td>2FNS-01-003-FM</td>
+                                                <td>KUAS BLP 3"</td>
+                                                <td>5</td>
+                                                <td>Confirmed</td>
+                                                <td>
+                                                      <a href="" class="link-underline link-underline-opacity-0 link-secondary">
+                                                            <i class="bi bi-three-dots" style="font-size: 20px"></i>
+                                                      </a>
+                                                </td>
+                                          </tr>
+                                    </tbody>
+                              </table>
+                        </div>
                   </div>
             </div>
       </div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarcodeController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,9 +27,9 @@ Route::get('/products', function () {
 Route::get('/transaction', function () {
     return view('admin.transaction');
 });
-Route::get('/new-transaction', function () {
-    return view('admin.new-transaction');
-});
+// Route::get('/new-transaction', function () {
+//     return view('admin.new-transaction');
+// });
 Route::get('/purchase-receive', function () {
     return view('admin.receive-order');
 });
@@ -51,6 +52,8 @@ Route::get('/profile', function () {
     return view('admin.profile');
 });
 Route::get('/products', [BarcodeController::class, 'generateBarcode']);
+Route::get('/new-transaction', [TransactionController::class, 'index']);
+Route::get('/search-products', [TransactionController::class, 'searchProducts'])->name('products.search');
 
 
 Route::fallback(function () {
