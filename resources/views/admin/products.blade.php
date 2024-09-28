@@ -21,7 +21,7 @@
                                           <form>
                                                 <div class="mb-3">
                                                       <label for="productname" class="form-label">Nama product</label>
-                                                      <input type="" class="form-control" id="productname">
+                                                      <input type="text" class="form-control" id="productname">
                                                 </div>
                                                 <div class="mb-3">
                                                       <label for="productcategory">Kategori</label>
@@ -223,7 +223,6 @@
 </div>
 <script>
       new DataTable('#example');
-
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

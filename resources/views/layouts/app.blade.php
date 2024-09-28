@@ -20,9 +20,9 @@
 </body>
 <script src="https://cdn.datatables.net/v/bs5/dt-2.1.6/datatables.min.js"></script>
 <script>
-      document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-      });
+      // document.addEventListener('contextmenu', function(e) {
+      //       e.preventDefault();
+      // });
 
 </script>
 

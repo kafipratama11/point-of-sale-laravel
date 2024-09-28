@@ -51,3 +51,8 @@ Route::get('/profile', function () {
     return view('admin.profile');
 });
 Route::get('/products', [BarcodeController::class, 'generateBarcode']);
+
+
+Route::fallback(function () {
+    return response()->view('error.404', [], 404);
+});

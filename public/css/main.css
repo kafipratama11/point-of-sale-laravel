@@ -132,3 +132,25 @@ input:focus{
 .footer-card-dashboard{
       font-size: 12px;
 }
+
+.menu-category, .date-wrapp, .list-menu-wrapp, .total-wrapp{
+      font-size: 12px;
+}
+
+.product-name-wrapp{
+      font-size: 16px;
+}
+
+.product-price{
+      font-size: 14px;
+      color: #4D869C;
+      font-weight: 600;
+}
+
+.stock, .phone-member{
+      font-size: 14px;
+}
+
+.transaction-container{
+      width: 500px;
+}
