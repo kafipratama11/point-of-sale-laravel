@@ -11,36 +11,33 @@
                         <div class="px-3 pt-2">
                               <input class="form-control rounded-0" id="search" type="text" placeholder="Search product..." aria-label=".form-control-sm example">
                         </div>
-                        <div class="menu-wrapp p-4 row" id="product-list">
+                        <div class="menu-wrapp p-4 mb-5 row" id="product-list">
                               <!-- Input Search -->
-                              @foreach ($products as $product)
-                              <div class="menu-card p-2 bg-white px-3 col-xl-4 col-md-6 col-sm-12 border">
+                              {{-- @foreach ($products as $product)
+                              <div class="menu-card p-2 pt-3 bg-white px-3 col-xl-4 col-md-6 col-sm-12 border">
                                     <div class="d-flex gap-2 align-items-start">
                                           <div class="text-black fw-medium product-name-wrapp lh-sm">{{ $product['product_name'] }}</div>
                                           <div class="rounded-pill border px-2 menu-category text-secondary fw-medium me-auto">{{ $product['category'] }}</div>
-                                          <div>
-                                                <a href="" class="link-underline link-underline-opacity-0 link-secondary">
-                                                      <i class="bi bi-three-dots" style="font-size: 20px"></i>
-                                                </a>
-                                          </div>
                                     </div>
                                     <div class="product-price">
                                           Rp{{ $product['price'] }}
                                     </div>
                                     <div class="stock d-flex gap-1 mt-2">
                                           <div class="fw-normal text-secondary">Stock</div>
-                                          <div class="fw-semibold text-secondary">17</div>
+                                          <div class="fw-semibold text-secondary me-auto">17</div>
+                                          <div>
+                                                <button class="text-white background-primary btn add-to-order">
+                                                      <i class="bi bi-plus-lg" style="font-size: 16px"></i>
+                                                </button>
+                                          </div>
                                     </div>
                               </div>
-                              @endforeach
+                              @endforeach --}}
                         </div>
                         <!-- Daftar Pesanan -->
-                        <h2 class="mt-4">Order List</h2>
-                        <ul class="list-group">
-                              <li class="list-group-item">Your selected products will appear here.</li>
-                        </ul>
+                        {{-- <h2 class="mt-4">Order List</h2> --}}
                   </div>
-                  <div class="transaction-container px-3 bg-white" >
+                  <div class="transaction-container px-3 bg-white">
                         <div class="d-flex border-top border-bottom">
                               <div class="pt-2 pb-3">
                                     <div class="member-name fw-bold text-black">Jessica Kimberly</div>
@@ -52,8 +49,9 @@
                                     <div class="text-secondary">Tuesday, 07 March 2023</div>
                                     <div></div>
                               </div>
-                              <div class="py-2" id="order-list">
-                                    <div class="list-menu-wrapp py-1">
+                              <div class="py-2 order-list" id="order-list">
+                                          <li class="list-group-item">Your selected products will appear here.</li>
+                                    {{-- <div class="list-menu-wrapp py-1">
                                           <div class="d-flex gap-3">
                                                 <div>1</div>
                                                 <div class="me-auto">Chitos</div>
@@ -62,7 +60,7 @@
                                                       <i class="bi bi-x-lg"></i>
                                                 </a>
                                           </div>
-                                    </div>
+                                    </div> --}}
                                     {{-- <div class="list-menu-wrapp py-1">
                                           <div class="d-flex gap-3">
                                                 <div>3</div>
@@ -140,7 +138,7 @@
                                                             <div class="text-secondary">Tuesday, 07 March 2023</div>
                                                             <div></div>
                                                       </div>
-                                                      <div class="py-2">
+                                                      <div class="py-2 order-list" id="order-list">
                                                             <div class="list-menu-wrapp py-1">
                                                                   <div class="d-flex gap-3">
                                                                         <div>1</div>
@@ -231,6 +229,50 @@
       let orderList = [];
 
       $(document).ready(function() {
+            function loadAllProducts() {
+                  $.ajax({
+                        url: "{{ route('products.search') }}", // Tambahkan route baru untuk mengambil semua produk
+                        type: 'GET'
+                        , success: function(data) {
+                              $('#product-list').empty();
+                              if (data.length > 0) {
+                                    $.each(data, function(index, product) {
+                                          let productInOrder = orderList.find(item => item.product_name === product.product_name);
+                                          let disabled = productInOrder ? 'disabled' : ''; // Disable jika produk ada di order list
+
+                                          $('#product-list').append(`
+                                                <div class="menu-card p-2 pt-3 bg-white px-3 col-xl-4 col-md-6 col-sm-12 border">
+                                                      <div class="d-flex gap-2 align-items-start">
+                                                            <div class="text-black fw-medium product-name-wrapp lh-sm">` + product.product_name + `</div>
+                                                            <div class="rounded-pill border px-2 menu-category text-secondary fw-medium me-auto">` + product.category + `</div>
+                                                      <div>
+                                                </div>
+                                          </div>
+                                          <div class="product-price">
+                                                Rp` + product.price + `
+                                          </div>
+                                          <div class="stock d-flex gap-1 mt-2">
+                                                <div class="fw-normal text-secondary">Stock</div>
+                                                <div class="fw-semibold text-secondary me-auto">17</div>
+                                                <div>
+                                                      <button class="text-white background-primary btn add-to-order" data-product='` + JSON.stringify(product) + `' ` + disabled + `>
+                                                            <i class="bi bi-plus-lg" style="font-size: 16px"></i>
+                                                      </button>
+                                                </div>
+                                          </div>
+                                    </div>
+                                    `);
+                                    });
+                              } else {
+                                    $('#product-list').append('<p>No products available.</p>');
+                              }
+                        }
+                  });
+            }
+
+            // Load semua produk saat halaman pertama kali dimuat
+            loadAllProducts();
+
             // Event listener untuk search
             $('#search').on('keyup', function() {
                   var query = $(this).val();
@@ -244,21 +286,32 @@
                               }
                               , success: function(data) {
                                     $('#product-list').empty();
-
                                     if (data.length > 0) {
                                           $.each(data, function(index, product) {
                                                 let productInOrder = orderList.find(item => item.product_name === product.product_name);
-                                                let disabled = productInOrder ? 'disabled' : ''; // Cek apakah produk sudah ada di order list
+                                                let disabled = productInOrder ? 'disabled' : ''; // Disable jika produk ada di order list
 
                                                 $('#product-list').append(`
-                                                <div class="menu-card p-2 bg-white w-100 px-3">
-                                                      <div class="d-flex gap-2 align-items-center">
-                                                            <div class="text-black fw-medium product-name-wrapp">` + product.product_name + `</div>
+                                                <div class="menu-card p-2 bg-white px-3 col-xl-4 col-md-6 col-sm-12 border">
+                                                      <div class="d-flex gap-2 align-items-start">
+                                                            <div class="text-black fw-medium product-name-wrapp lh-sm me-auto w-100">` + product.product_name + `</div>
                                                             <div class="rounded-pill border px-2 menu-category text-secondary fw-medium me-auto">` + product.category + `</div>
-                                                            <div class="product-price">Rp` + product.price + `</div>
-                                                            <button class="btn btn-primary btn-sm add-to-order" data-product='` + JSON.stringify(product) + `' ` + disabled + `>Pilih</button>
-                                                      </div>
+                                                      <div>
                                                 </div>
+                                          </div>
+                                          <div class="product-price">
+                                                Rp` + product.price + `
+                                          </div>
+                                          <div class="stock d-flex gap-1 mt-2">
+                                                <div class="fw-normal text-secondary">Stock</div>
+                                                <div class="fw-semibold text-secondary me-auto">17</div>
+                                                <div>
+                                                      <button class="text-white background-primary btn add-to-order" data-product='` + JSON.stringify(product) + `' ` + disabled + `>
+                                                            <i class="bi bi-plus-lg" style="font-size: 16px"></i>
+                                                      </button>
+                                                </div>
+                                          </div>
+                                    </div>
                                                 `);
                                           });
                                     } else {
@@ -267,7 +320,8 @@
                               }
                         });
                   } else {
-                        $('#product-list').html('<p>Start typing to search products...</p>');
+                        // Jika input search kosong, tampilkan semua produk kembali
+                        loadAllProducts();
                   }
             });
 
@@ -285,11 +339,11 @@
 
             // Fungsi untuk menampilkan daftar pesanan dan input qty di daftar pesanan
             function updateOrderList() {
-                  $('#order-list').empty();
+                  $('.order-list').empty();
 
                   if (orderList.length > 0) {
                         $.each(orderList, function(index, product) {
-                              $('#order-list').append(`
+                              $('.order-list').append(`
                                     <div class="list-menu-wrapp py-1">
                                           <div class="d-flex gap-3">
                                                 <div>
@@ -297,7 +351,7 @@
                                                 </div>
                                                 <div class="me-auto w-100">` + product.product_name + `</div>
                                                 <div>Rp` + product.price + `</div>
-                                                <a href="" class="link-secondary remove-from-order" data-index="` + index + `">
+                                                <a class="link-secondary remove-from-order" data-index="` + index + `">
                                                       <i class="bi bi-x-lg"></i>
                                                 </a>
                                           </div>
@@ -305,7 +359,7 @@
                               `);
                         });
                   } else {
-                        $('#order-list').append('<li class="list-group-item">Your selected products will appear here.</li>');
+                        $('.order-list').append('<li class="list-group-item">Your selected products will appear here.</li>');
                   }
             }
 
@@ -323,7 +377,7 @@
                   orderList.splice(index, 1); // Hapus produk dari array orderList
 
                   // Aktifkan kembali tombol 'Pilih' pada daftar produk
-                  $('button[data-product="' + removedProduct.product_name + '"]').prop('disabled', false);
+                  $(`button[data-product='{"product_name":"${removedProduct.product_name}","price":"${removedProduct.price}","category":"${removedProduct.category}"}']`).prop('disabled', false);
 
                   updateOrderList(); // Update tampilan daftar pesanan
             });

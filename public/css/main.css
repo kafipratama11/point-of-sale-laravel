@@ -133,7 +133,7 @@ input:focus{
       font-size: 12px;
 }
 
-.menu-category, .date-wrapp, .list-menu-wrapp, .total-wrapp{
+.menu-category, .date-wrapp, .list-menu-wrapp, .total-wrapp, .list-group-item{
       font-size: 12px;
 }
 
