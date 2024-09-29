@@ -137,7 +137,7 @@ input:focus{
       font-size: 12px;
 }
 
-.product-name-wrapp{
+.product-name-wrapp, .qty-order input{
       font-size: 14px;
 }
 
@@ -153,4 +153,18 @@ input:focus{
 
 .transaction-container{
       width: 500px;
+      max-width: 500px;
 }
+
+.qty-order input{
+      max-width: 60px;
+}
+.product-name-order-list{
+      width: 120px;
+}
+/* .order-list{
+      min-height: 9.5rem;
+      max-height: 9.5rem;
+      overflow: auto;
+      padding-right: 12px;
+} */

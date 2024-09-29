@@ -8,12 +8,12 @@
             @include('partials.header')
             <div class="container-card-dashboard d-flex">
                   <div class="menu-container w-100">
-                        <div class="px-3 pt-2">
+                        <div class="p-4 pb-0 row">
                               <input class="form-control rounded-0" id="search" type="text" placeholder="Search product..." aria-label=".form-control-sm example">
                         </div>
                         <div class="menu-wrapp p-4 mb-5 row" id="product-list">
                               <!-- Input Search -->
-                              {{-- @foreach ($products as $product)
+                              @foreach ($products as $product)
                               <div class="menu-card p-2 pt-3 bg-white px-3 col-xl-4 col-md-6 col-sm-12 border">
                                     <div class="d-flex gap-2 align-items-start">
                                           <div class="text-black fw-medium product-name-wrapp lh-sm">{{ $product['product_name'] }}</div>
@@ -32,26 +32,27 @@
                                           </div>
                                     </div>
                               </div>
-                              @endforeach --}}
+                              @endforeach
                         </div>
                         <!-- Daftar Pesanan -->
                         {{-- <h2 class="mt-4">Order List</h2> --}}
                   </div>
                   <div class="transaction-container px-3 bg-white">
-                        <div class="d-flex border-top border-bottom">
-                              <div class="pt-2 pb-3">
-                                    <div class="member-name fw-bold text-black">Jessica Kimberly</div>
-                                    <div class="phone-member text-primary">0821-7414-0161</div>
-                              </div>
-                        </div>
                         <div>
-                              <div class="date-wrapp d-flex py-2 border-bottom">
-                                    <div class="text-secondary">Tuesday, 07 March 2023</div>
-                                    <div></div>
+                              <div class="d-flex border-top border-bottom">
+                                    <div class="pt-2 pb-3">
+                                          <div class="member-name fw-bold text-black">Jessica Kimberly</div>
+                                          <div class="phone-member text-primary">0821-7414-0161</div>
+                                    </div>
                               </div>
-                              <div class="py-2 order-list" id="order-list">
+                              <div>
+                                    <div class="date-wrapp d-flex py-2 border-bottom">
+                                          <div class="text-secondary">Tuesday, 07 March 2023</div>
+                                          <div></div>
+                                    </div>
+                                    <div class="py-2 order-list" id="order-list">
                                           <li class="list-group-item">Your selected products will appear here.</li>
-                                    {{-- <div class="list-menu-wrapp py-1">
+                                          {{-- <div class="list-menu-wrapp py-1">
                                           <div class="d-flex gap-3">
                                                 <div>1</div>
                                                 <div class="me-auto">Chitos</div>
@@ -61,7 +62,7 @@
                                                 </a>
                                           </div>
                                     </div> --}}
-                                    {{-- <div class="list-menu-wrapp py-1">
+                                          {{-- <div class="list-menu-wrapp py-1">
                                           <div class="d-flex gap-3">
                                                 <div>3</div>
                                                 <div class="me-auto">Mogu Mogu</div>
@@ -81,39 +82,40 @@
                                                 </a>
                                           </div>
                                     </div> --}}
-                              </div>
-                              <div class="mt-2 mb-5 total-wrapp">
-                                    <div class="d-flex py-2 border-bottom">
-                                          <div class="me-auto">Sub Total</div>
-                                          <div>Rp73.900,00</div>
                                     </div>
-                                    <div class="d-flex py-2 border-bottom">
-                                          <div class="me-auto">Discount</div>
-                                          <div>Rp13.900,00</div>
-                                    </div>
-                                    <div class="d-flex py-2 border-bottom">
-                                          <div class="me-auto">PPN</div>
-                                          <div>11%</div>
-                                    </div>
-                                    <div class="d-flex py-2 border-bottom">
-                                          <div class="me-auto">Grand Total</div>
-                                          <div class="fw-semibold">Rp67.000,00</div>
-                                    </div>
-                                    <div class="d-flex py-2 align-items-center border-bottom">
-                                          <div class="me-auto">Payment Method</div>
-                                          <div class="fw-semibold">
-                                                <select class="form-select" aria-label="Default select example" style="font-size: 12px">
-                                                      <option value="1">Cash</option>
-                                                      <option value="2">Dana</option>
-                                                      <option value="3">Ovo</option>
-                                                      <option value="3">Card</option>
-                                                </select>
+                                    <div class="mt-2 mb-5 total-wrapp">
+                                          <div class="d-flex py-2 border-bottom total-order">
+                                                <div class="me-auto">Sub Total</div>
+                                                <div id="total-order-value"></div>
+                                          </div>
+                                          <div class="d-flex py-2 border-bottom">
+                                                <div class="me-auto">Discount</div>
+                                                <div>Rp13.900,00</div>
+                                          </div>
+                                          <div class="d-flex py-2 border-bottom">
+                                                <div class="me-auto">PPN</div>
+                                                <div>11%</div>
+                                          </div>
+                                          <div class="d-flex py-2 border-bottom">
+                                                <div class="me-auto">Grand Total</div>
+                                                <div class="fw-semibold">Rp67.000,00</div>
+                                          </div>
+                                          <div class="d-flex py-2 align-items-center border-bottom">
+                                                <div class="me-auto">Payment Method</div>
+                                                <div class="fw-semibold">
+                                                      <select class="form-select" aria-label="Default select example" style="font-size: 12px">
+                                                            <option value="1">Cash</option>
+                                                            <option value="2">Dana</option>
+                                                            <option value="3">Ovo</option>
+                                                            <option value="3">Card</option>
+                                                      </select>
+                                                </div>
                                           </div>
                                     </div>
-                              </div>
-                              <div class="d-flex gap-1 align-items-center justify-content-center w-100 pt-3 pb-4">
-                                    <button type="button" class="btn background-primary w-100 text-white" style="font-size: 14px">Finish</button>
-                                    <button type="button" class="btn w-100" style="background-color: #EBF4F6; font-size: 14px;">Cancel</button>
+                                    <div class="d-flex gap-1 align-items-center justify-content-center w-100 pt-3 pb-4">
+                                          <button type="button" class="btn background-primary w-100 text-white" style="font-size: 14px">Finish</button>
+                                          <button type="button" class="btn w-100" style="background-color: #EBF4F6; font-size: 14px;">Cancel</button>
+                                    </div>
                               </div>
                         </div>
                   </div>
@@ -346,11 +348,11 @@
                               $('.order-list').append(`
                                     <div class="list-menu-wrapp py-1">
                                           <div class="d-flex gap-3">
-                                                <div>
-                                                      <input type="number" class="form-control qty-order" value="` + product.qty + `" min="1" data-index="` + index + `"/>      
+                                                <div class="qty-order">
+                                                      <input type="number" class="form-control qty-input" value="` + product.qty + `" min="1" data-index="` + index + `"/>      
                                                 </div>
-                                                <div class="me-auto w-100">` + product.product_name + `</div>
-                                                <div>Rp` + product.price + `</div>
+                                                <div class="me-auto product-name-order-list text-break">` + product.product_name + `</div>
+                                                <div class="product-price-order">Rp` + product.price + `</div>
                                                 <a class="link-secondary remove-from-order" data-index="` + index + `">
                                                       <i class="bi bi-x-lg"></i>
                                                 </a>
@@ -382,6 +384,42 @@
                   updateOrderList(); // Update tampilan daftar pesanan
             });
       });
+
+      // Function to format number as currency (Rupiah)
+      function formatCurrency(number) {
+            return number.toLocaleString('id-ID', {
+                  minimumFractionDigits: 2
+                  , maximumFractionDigits: 2
+            });
+      }
+
+      // Function to calculate total order value
+      function calculateTotalOrder() {
+            let totalOrder = 0;
+            // Loop through each product card
+            document.querySelectorAll('.order-list').forEach(card => {
+                  const price = parseFloat(card.querySelector('.product-price-order').innerText.replace('Rp', '').replace('.', '').replace(',', '.'));
+                  const qty = parseInt(card.querySelector('.qty-input').value);
+                  const subtotal = price * qty;
+
+                  // Add subtotal to total order
+                  totalOrder += subtotal;
+            });
+
+            // Update total order in the DOM
+            document.getElementById('total-order-value').innerText = formatCurrency(totalOrder);
+      }
+
+      // Attach event listeners to all quantity inputs
+      document.querySelectorAll('.qty-input').forEach(input => {
+            input.addEventListener('input', function() {
+                  // Recalculate total order whenever quantity is changed
+                  calculateTotalOrder();
+            });
+      });
+
+      // Initial calculation of total order when the page loads
+      calculateTotalOrder();
 
 </script>
 @endsection
