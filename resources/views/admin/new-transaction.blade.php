@@ -8,6 +8,7 @@
             @include('partials.header')
             <div class="container-card-dashboard d-flex">
                   <div class="menu-container w-100">
+                        
                         <div class="p-4 pb-0 row">
                               <input class="form-control rounded-0" id="search" type="text" placeholder="Search product..." aria-label=".form-control-sm example">
                         </div>
@@ -246,7 +247,7 @@
                                                 <div class="menu-card p-2 pt-3 bg-white px-3 col-xl-4 col-md-6 col-sm-12 border">
                                                       <div class="d-flex gap-2 align-items-start">
                                                             <div class="text-black fw-medium product-name-wrapp lh-sm">` + product.product_name + `</div>
-                                                            <div class="rounded-pill border px-2 menu-category text-secondary fw-medium me-auto">` + product.category + `</div>
+                                                            <div class="rounded-pill border px-2 menu-category text-secondary fw-medium">` + product.category + `</div>
                                                       <div>
                                                 </div>
                                           </div>
@@ -296,8 +297,8 @@
                                                 $('#product-list').append(`
                                                 <div class="menu-card p-2 bg-white px-3 col-xl-4 col-md-6 col-sm-12 border">
                                                       <div class="d-flex gap-2 align-items-start">
-                                                            <div class="text-black fw-medium product-name-wrapp lh-sm me-auto w-100">` + product.product_name + `</div>
-                                                            <div class="rounded-pill border px-2 menu-category text-secondary fw-medium me-auto">` + product.category + `</div>
+                                                            <div class="text-black fw-medium product-name-wrapp lh-sm w-100">` + product.product_name + `</div>
+                                                            <div class="rounded-pill border px-2 menu-category text-secondary fw-medium">` + product.category + `</div>
                                                       <div>
                                                 </div>
                                           </div>

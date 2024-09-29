@@ -4,6 +4,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Indomaret</title>
+      @livewireStyles
       <link rel="stylesheet" href="../css/main.css">
       <link rel="stylesheet" href="../css/default.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
@@ -17,6 +18,7 @@
 <body>
       @yield('main')
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+      @livewireScripts
 </body>
 <script src="https://cdn.datatables.net/v/bs5/dt-2.1.6/datatables.min.js"></script>
 <script src="../../script.js"></script>
