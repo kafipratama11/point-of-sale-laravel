@@ -8,7 +8,6 @@
             @include('partials.header')
             <div class="container-card-dashboard d-flex">
                   <div class="menu-container w-100">
-                        
                         <div class="p-4 pb-0 row">
                               <input class="form-control rounded-0" id="search" type="text" placeholder="Search product..." aria-label=".form-control-sm example">
                         </div>
@@ -35,8 +34,6 @@
                               </div>
                               @endforeach
                         </div>
-                        <!-- Daftar Pesanan -->
-                        {{-- <h2 class="mt-4">Order List</h2> --}}
                   </div>
                   <div class="transaction-container px-3 bg-white">
                         <div>

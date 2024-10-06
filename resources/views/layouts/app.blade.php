@@ -3,7 +3,7 @@
 <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Indomaret</title>
+      <title>Indomerit</title>
       @livewireStyles
       <link rel="stylesheet" href="../css/main.css">
       <link rel="stylesheet" href="../css/default.css">
@@ -21,12 +21,10 @@
       @livewireScripts
 </body>
 <script src="https://cdn.datatables.net/v/bs5/dt-2.1.6/datatables.min.js"></script>
-<script src="../../script.js"></script>
+<script src="{{ asset('js/script.js') }}"></script>
 <script>
       // document.addEventListener('contextmenu', function(e) {
       //       e.preventDefault();
       // });
-
 </script>
-
 </html>

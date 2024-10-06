@@ -1,5 +1,5 @@
-<nav class="sidebar-admin border-end bg-white">
-      <div class="p-3 ps-2 pe-0">
+<nav class="sidebar-admin border-end bg-white overflow-auto">
+      <div class="p-3 ps-2 pe-0 overflow-auto" style="max-height: 100vh; min-height: 100vh;">
             <div class="sidebar-brand mb-5 d-flex align-items-center gap-3 ps-3">
                   <div class="profile-picture-sidebar ratio-1x1 rounded-circle overflow-hidden">
                         <img src="../../../img/iu.jpg" alt="">
@@ -15,13 +15,6 @@
                         <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('overview') ? 'active ps-2' : '' }}">
                               <i class="bi bi-grid-1x2"></i>
                               <div>Dashboard</div>
-                        </div>
-                  </a>
-                  {{-- <a href="{{ url('/products') }}" class="link-underline link-underline-opacity-0"> --}}
-                  <a href="https://z6d7d0pf-8000.asse.devtunnels.ms/products" class="link-underline link-underline-opacity-0">
-                        <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('products') ? 'active' : '' }}">
-                              <i class="bi bi-box"></i>
-                              <div>Products</div>
                         </div>
                   </a>
                   {{-- <a href="{{ url('/members') }}" class="link-underline link-underline-opacity-0"> --}}
@@ -73,6 +66,20 @@
                         <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('purchase-receive') ? 'active' : '' }}">
                               <i class="bi bi-bag-check"></i>
                               <div>Purchase Received</div>
+                        </div>
+                  </a>
+                  <div class="fw-medium mt-3 ps-3" style="font-size: 14px">Inventory</div>
+                  {{-- <a href="{{ url('/products') }}" class="link-underline link-underline-opacity-0"> --}}
+                  <a href="https://z6d7d0pf-8000.asse.devtunnels.ms/products" class="link-underline link-underline-opacity-0">
+                        <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('products') ? 'active' : '' }}">
+                              <i class="bi bi-box"></i>
+                              <div>Products</div>
+                        </div>
+                  </a>
+                  <a href="https://z6d7d0pf-8000.asse.devtunnels.ms/products" class="link-underline link-underline-opacity-0">
+                        <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('products') ? 'active' : '' }}">
+                              <i class="bi bi-trash3"></i>
+                              <div>Stock Reduction</div>
                         </div>
                   </a>
             </div>

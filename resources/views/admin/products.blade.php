@@ -50,6 +50,74 @@
                         </div>
                   </div>
             </div>
+            <div class="mt-2 d-flex px-4 gap-1" style="font-size: 12px">
+                  <div class="w-100 border">
+                        <div class="card-category bg-white p-2 px-3">
+                              <div class="d-flex gap-2">
+                                    {{-- <div><i class="bi bi-cup-straw"></i></div> --}}
+                                    <div>
+                                          <div class="fw-bold">Drink</div>
+                                          <div>12 Products in Stock</div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="w-100 border">
+                        <div class="card-category bg-white p-2 px-3">
+                              <div class="d-flex gap-2">
+                                    {{-- <div><i class="bi bi-cup-straw"></i></div> --}}
+                                    <div>
+                                          <div class="fw-bold">Drink</div>
+                                          <div>12 Products in Stock</div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="w-100 border">
+                        <div class="card-category bg-white p-2 px-3">
+                              <div class="d-flex gap-2">
+                                    {{-- <div><i class="bi bi-cup-straw"></i></div> --}}
+                                    <div>
+                                          <div class="fw-bold">Drink</div>
+                                          <div>12 Products in Stock</div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="w-100 border">
+                        <div class="card-category bg-white p-2 px-3">
+                              <div class="d-flex gap-2">
+                                    {{-- <div><i class="bi bi-cup-straw"></i></div> --}}
+                                    <div>
+                                          <div class="fw-bold">Drink</div>
+                                          <div>12 Products in Stock</div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="w-100 border">
+                        <div class="card-category bg-white p-2 px-3">
+                              <div class="d-flex gap-2">
+                                    {{-- <div><i class="bi bi-cup-straw"></i></div> --}}
+                                    <div>
+                                          <div class="fw-bold">Drink</div>
+                                          <div>12 Products in Stock</div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="w-100 border">
+                        <div class="card-category bg-white p-2 px-3">
+                              <div class="d-flex gap-2">
+                                    {{-- <div><i class="bi bi-cup-straw"></i></div> --}}
+                                    <div>
+                                          <div class="fw-bold">Drink</div>
+                                          <div>12 Products in Stock</div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+            </div>
             <div class="px-4 mt-3">
                   <div class="bg-white rounded border">
                         <div class="px-3 py-4 rounded">
@@ -225,6 +293,7 @@
 </div>
 <script>
       new DataTable('#example');
+
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
