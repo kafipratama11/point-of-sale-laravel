@@ -1,4 +1,4 @@
-<header class="w-100">
+<header class="w-100 sticky-top">
       <nav class="border-bottom w-100 bg-white">
             <div class="d-flex align-items-center px-4 py-3 gap-2">
                   <a class="btn btn-transparent hamburger-menu" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
@@ -14,6 +14,7 @@
                   <div class="section-name-header me-auto">
                         {{ request()->is('overview') ? 'Overview' : '' }}
                         {{ request()->is('products') ? 'Products' : '' }}
+                        {{ request()->is('products/categories') ? 'Products Category' : '' }}
                         {{ request()->is('transaction') ? 'Transaction' : '' }}
                         {{ request()->is('new-transaction') ? 'New Transaction' : '' }}
                         {{ request()->is('purchase-request') ? 'Purchase Request' : '' }}
@@ -21,7 +22,7 @@
                         {{ request()->is('purchase-receive') ? 'Purchase Received' : '' }}
                         {{ request()->is('users') ? 'Users' : '' }}
                         {{ request()->is('members') ? 'Members' : '' }}
-                        {{ request()->is('profile') ? 'MUHAMMAD KAFI PRATAMA' : '' }}
+                        {{ request()->is('profile') ? 'Username' : '' }}
                   </div>
                   <div class="d-flex gap-3 align-items-center">
                         <a href="">
@@ -44,7 +45,7 @@
                   </div>
             </div>
       </nav>
-      <div class="px-4 pt-2 bg-white d-flex align-items-center">
+      <div class="px-4 pt-2 bg-white d-flex align-items-center border-bottom">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                   <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#" class="link-underline link-underline-opacity-0 link-body-tertiary">Home</a></li>

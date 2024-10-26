@@ -168,3 +168,15 @@ input:focus{
       overflow: auto;
       padding-right: 12px;
 } */
+
+.dropdown-item{
+      font-size: 14px;
+}
+.dropdown-item:active{
+      background-color: white!important;
+      color: #000000!important;
+}
+
+.card-filter,.dropdown-menu, .dropdown-item{
+      z-index: 8!important;
+}

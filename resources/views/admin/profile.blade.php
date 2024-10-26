@@ -35,9 +35,12 @@
                         </div>
                         <div class="card mt-2 border-0">
                               <div class="card-body">
-                                    <div class="mb-3">
-                                          <div class="fw-medium text-danger">Logout</div>
-                                    </div>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                          @csrf
+                                          <div class="mb-3">
+                                                <button type="submit" class="btn fw-medium text-danger link-underline link-underline-opacity-0">Logout</button>
+                                          </div>
+                                    </form>
                               </div>
                         </div>
                   </div>

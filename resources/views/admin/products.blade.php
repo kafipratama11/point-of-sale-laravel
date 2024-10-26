@@ -8,6 +8,7 @@
             @include('partials.header')
             <div class="px-4 d-flex mt-3">
                   <div class="me-auto fw-medium">Products</div>
+                  <a href="/products/categories" class="btn background-primary text-white btn-add me-2">Category</a>
                   <button type="button" class="btn background-primary text-white btn-add" data-bs-toggle="modal" data-bs-target="#createProduct"><i class="bi bi-plus-lg"></i> New Product</button>
                   <!-- Modal -->
                   <div class="modal fade" id="createProduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -25,11 +26,11 @@
                                                 </div>
                                                 <div class="mb-3">
                                                       <label for="productcategory">Kategori</label>
-                                                      <select class="form-select" id="productcategory" aria-label="Default select example">
+                                                      <select class="form-select text-capitalize" id="productcategory" aria-label="Default select example" required>
                                                             <option selected>Pilih kategori</option>
-                                                            <option value="1">One</option>
-                                                            <option value="2">Two</option>
-                                                            <option value="3">Three</option>
+                                                            @foreach ($categories as $category)
+                                                            <option class="text-capitalize" value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                                            @endforeach
                                                       </select>
                                                 </div>
                                                 <div class="mb-3">
@@ -45,74 +46,6 @@
                                     <div class="modal-footer">
                                           <button type="button" class="btn btn-modal-close border-0" data-bs-dismiss="modal">Batal</button>
                                           <button type="button" class="btn btn-modal-submit background-primary text-white">Simpan</button>
-                                    </div>
-                              </div>
-                        </div>
-                  </div>
-            </div>
-            <div class="mt-2 d-flex px-4 gap-1" style="font-size: 12px">
-                  <div class="w-100 border">
-                        <div class="card-category bg-white p-2 px-3">
-                              <div class="d-flex gap-2">
-                                    {{-- <div><i class="bi bi-cup-straw"></i></div> --}}
-                                    <div>
-                                          <div class="fw-bold">Drink</div>
-                                          <div>12 Products in Stock</div>
-                                    </div>
-                              </div>
-                        </div>
-                  </div>
-                  <div class="w-100 border">
-                        <div class="card-category bg-white p-2 px-3">
-                              <div class="d-flex gap-2">
-                                    {{-- <div><i class="bi bi-cup-straw"></i></div> --}}
-                                    <div>
-                                          <div class="fw-bold">Drink</div>
-                                          <div>12 Products in Stock</div>
-                                    </div>
-                              </div>
-                        </div>
-                  </div>
-                  <div class="w-100 border">
-                        <div class="card-category bg-white p-2 px-3">
-                              <div class="d-flex gap-2">
-                                    {{-- <div><i class="bi bi-cup-straw"></i></div> --}}
-                                    <div>
-                                          <div class="fw-bold">Drink</div>
-                                          <div>12 Products in Stock</div>
-                                    </div>
-                              </div>
-                        </div>
-                  </div>
-                  <div class="w-100 border">
-                        <div class="card-category bg-white p-2 px-3">
-                              <div class="d-flex gap-2">
-                                    {{-- <div><i class="bi bi-cup-straw"></i></div> --}}
-                                    <div>
-                                          <div class="fw-bold">Drink</div>
-                                          <div>12 Products in Stock</div>
-                                    </div>
-                              </div>
-                        </div>
-                  </div>
-                  <div class="w-100 border">
-                        <div class="card-category bg-white p-2 px-3">
-                              <div class="d-flex gap-2">
-                                    {{-- <div><i class="bi bi-cup-straw"></i></div> --}}
-                                    <div>
-                                          <div class="fw-bold">Drink</div>
-                                          <div>12 Products in Stock</div>
-                                    </div>
-                              </div>
-                        </div>
-                  </div>
-                  <div class="w-100 border">
-                        <div class="card-category bg-white p-2 px-3">
-                              <div class="d-flex gap-2">
-                                    {{-- <div><i class="bi bi-cup-straw"></i></div> --}}
-                                    <div>
-                                          <div class="fw-bold">Drink</div>
-                                          <div>12 Products in Stock</div>
                                     </div>
                               </div>
                         </div>
@@ -266,9 +199,9 @@
                                                             <div class="modal-body">
                                                                   <div style='text-align: center; gap: 3px;'>
                                                                         <!-- insert your custom barcode setting your data in the GET parameter "data" -->
-                                                                        @foreach ($sku as $item)
+                                                                        {{-- @foreach ($sku as $item)
                                                                         <img alt='Barcode Generator TEC-IT' src='https://barcode.tec-it.com/barcode.ashx?data={{$item}}&translate-esc=on' />
-                                                                        @endforeach
+                                                                        @endforeach --}}
                                                                   </div>
                                                                   <div class="d-flex gap-2 mt-4">
                                                                         <div>Product Name</div>

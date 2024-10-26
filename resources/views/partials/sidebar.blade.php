@@ -1,12 +1,23 @@
-<nav class="sidebar-admin border-end bg-white overflow-auto">
-      <div class="p-3 ps-2 pe-0 overflow-auto" style="max-height: 100vh; min-height: 100vh;">
+<aside class="sidebar-admin border-end bg-white sticky-top h-100">
+      <div class="p-3 ps-2 pe-0 overflow-auto">
             <div class="sidebar-brand mb-5 d-flex align-items-center gap-3 ps-3">
                   <div class="profile-picture-sidebar ratio-1x1 rounded-circle overflow-hidden">
                         <img src="../../../img/iu.jpg" alt="">
                   </div>
                   <div>
                         <div style="font-size: 16px">Username</div>
-                        <div class="fw-light" style="font-size: 14px">Admin, Cashier</div>
+                        <div class="fw-light" style="font-size: 14px">
+                              Cashier
+                        </div>
+                        {{-- <div class="fw-light" style="font-size: 14px">
+                              @if (Auth::user()->role_id === 1)
+                                    Superadmin
+                              @elseif(Auth::user()->role_id === 2)
+                                    Admin
+                              @elseif(Auth::user()->role_id === 3)
+                                    Cashier
+                              @endif
+                        </div> --}}
                   </div>
             </div>
             <div class="vstack gap-2">
@@ -71,17 +82,17 @@
                   <div class="fw-medium mt-3 ps-3" style="font-size: 14px">Inventory</div>
                   {{-- <a href="{{ url('/products') }}" class="link-underline link-underline-opacity-0"> --}}
                   <a href="https://z6d7d0pf-8000.asse.devtunnels.ms/products" class="link-underline link-underline-opacity-0">
-                        <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('products') ? 'active' : '' }}">
+                        <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('products') ? 'active' : '' }} {{ request()->is('products/categories') ? 'active' : '' }}">
                               <i class="bi bi-box"></i>
                               <div>Products</div>
                         </div>
                   </a>
-                  <a href="https://z6d7d0pf-8000.asse.devtunnels.ms/products" class="link-underline link-underline-opacity-0">
-                        <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('products') ? 'active' : '' }}">
+                  <a href="https://z6d7d0pf-8000.asse.devtunnels.ms/stock-reduction" class="link-underline link-underline-opacity-0">
+                        <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('stock-reduction') ? 'active' : '' }}">
                               <i class="bi bi-trash3"></i>
                               <div>Stock Reduction</div>
                         </div>
                   </a>
             </div>
       </div>
-</nav>
+</aside>
