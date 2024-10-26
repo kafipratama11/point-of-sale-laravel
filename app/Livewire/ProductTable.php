@@ -17,9 +17,8 @@ class ProductTable extends Component
     
     public function render()
     {
-        
         return view('livewire.product-table', [
-            'products' => Products::where('product_name','like','%'.$this->search.'%')->orderBy('id','desc')->paginate(10)
+            'products' => Products::with('category')->where('name','like','%'.$this->search.'%')->orderBy('id','desc')->paginate(10)
         ]);
     }
 }

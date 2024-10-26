@@ -7,7 +7,7 @@
                               <div class="me-auto">
                                     <div class="input-group search-products mb-1">
                                           <span class="input-group-text bg-white border-end-0" id="basic-addon1"><i class="bi bi-search"></i></span>
-                                          <input type="search" class="form-control border-start-0" placeholder="Search..." style="font-size: 14px" wire:model="search">
+                                          <input wire:model="search" type="search" class="form-control border-start-0" placeholder="Search..." style="font-size: 14px">
                                     </div>
                               </div>
                               <div class="d-flex gap-2">
@@ -125,7 +125,7 @@
                                           <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault{{ $category->id }}">
                                                 <label class="form-check-label" for="flexCheckDefault{{ $category->id }}">
-                                                      {{ $index + 1 }}
+                                                      {{ $categories->firstItem() + $index }}
                                                 </label>
                                           </div>
                                     </th>

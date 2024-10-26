@@ -28,23 +28,21 @@ class CategoryController extends Controller
     }
     
     public function destroy($id){
-    $category = ProductCategories::findOrFail($id);
-    $category->delete();
-    return redirect()->route('category.index')->with('success', 'Category deleted successfully.');
+        $category = ProductCategories::findOrFail($id);
+        $category->delete();
+        return redirect()->route('category.index')->with('success', 'Category deleted successfully.');
     }
 
-    public function update(Request $request, $id)
-{
-    $request->validate([
-        'category_name' => 'required|max:255',
-    ]);
+    public function update(Request $request, $id){
+        $request->validate([
+            'category_name' => 'required|max:255',
+        ]);
 
-    $category = ProductCategories::findOrFail($id);
-    $category->update([
-        'category_name' => $request->category_name,
-    ]);
-
-    return redirect()->route('category.index')->with('success', 'Category updated successfully.');
-}
+        $category = ProductCategories::findOrFail($id);
+        $category->update([
+            'category_name' => $request->category_name,
+        ]);
+        return redirect()->route('category.index')->with('success', 'Category updated successfully.');
+    }
     
 }
