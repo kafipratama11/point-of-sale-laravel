@@ -1,4 +1,13 @@
 @extends('layouts.app')
+
+@section('breadcrumb')
+<nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Products</li>
+      </ol>
+</nav>
+@endsection
+
 @section('main')
 <div class="d-flex main-container">
       <div class="sidebar">
@@ -12,9 +21,9 @@
                   <button type="button" class="btn background-primary text-white btn-add" data-bs-toggle="modal" data-bs-target="#createProduct"><i class="bi bi-plus-lg"></i> New Product</button>
                   <!-- Modal -->
                   <div class="modal fade" id="createProduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog modal-dialog-centered">
                               <div class="modal-content">
-                                    <form action="{{ route('product.store') }}" method="POST">
+                                    <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                                           @csrf
                                           <div class="modal-header">
                                                 <div class="modal-title" id="staticBackdropLabel">Create new product</div>
@@ -41,6 +50,10 @@
                                                 <div class="mb-3">
                                                       <label for="productprice" class="form-label">Harga</label>
                                                       <input type="number" class="form-control" id="price" name="price">
+                                                </div>
+                                                <div class="mb-3">
+                                                      <label for="image" class="form-label">Gambar Produk</label>
+                                                      <input class="form-control form-control-sm" id="image" type="file" name="image">
                                                 </div>
                                                 <div class="mb-3">
                                                       <div class="form-floating">

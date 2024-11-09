@@ -8,6 +8,12 @@
                                     <div class="input-group search-products mb-1">
                                           <span class="input-group-text bg-white border-end-0" id="basic-addon1"><i class="bi bi-search"></i></span>
                                           <input type="text" wire:model="search" class="form-control border-start-0" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1" style="font-size: 14px">
+                                          {{-- <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+                                          <datalist id="datalistOptions">
+                                                @foreach ($products as $product)
+                                                <option value="{{ $product->name }}">
+                                          @endforeach
+                                          </datalist> --}}
                                     </div>
                               </div>
                               <div class="d-flex gap-2">
@@ -105,7 +111,7 @@
                   </div>
             </div>
             <div class="overflow-auto">
-                  <table class="table table-hover" style="font-size: 12px">
+                  <table class="table table-hover border-top" style="font-size: 12px">
                         <thead class="table-light">
                               <tr>
                                     <th scope="col">
@@ -115,7 +121,7 @@
                                     </th>
                                     <th scope="col">Product Code</th>
                                     <th scope="col">Product Name</th>
-                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Stock</th>
                                     <th scope="col">Category</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Action</th>
@@ -133,10 +139,12 @@
                                           </div>
                                     </th>
                                     <td>
-                                          <a class="link-offset-2 link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="" data-bs-toggle="modal" data-bs-target="#modalDetailProduct{{ $product->id }}">{{ $product->sku }}</a>
+                                          <a class="link-offset-2 link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{{ route('product.show', ['encryptedId' => encrypt($product->id)]) }}">{{ $product->sku }}</a>
                                     </td>
                                     <td class="text-capitalize">{{ $product->name }}</td>
-                                    <td>{{ $product->stock }}</td>
+                                    <td class="{{ $product->stock <= $product->stock_minimum ? 'text-danger' : '' }}">
+                                          {{ $product->stock }}
+                                    </td>
                                     <td class="text-capitalize">{{ $product->category ? $product->category->category_name : 'N/A' }}</td>
                                     <td>{{ $product->price }}</td>
                                     <td>
@@ -146,7 +154,7 @@
                                                 </button>
                                                 <ul class="dropdown-menu dropdown-menu-end">
                                                       <li>
-                                                            <button class="dropdown-item d-flex gap-3" type="button" data-bs-toggle="modal" data-bs-target="#updateProduct"><i class="bi bi-pen"></i> Edit</button>
+                                                            <a href="{{ route('product.update', ['encryptedId' => encrypt($product->id)]) }}" class="dropdown-item d-flex gap-3" type="button"><i class="bi bi-pen"></i> Edit</a>
                                                       </li>
                                                       <li>
                                                             <form action="{{ route('product.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this product?');">
@@ -168,19 +176,8 @@
                                                       <div class="modal-body">
                                                             <div style='text-align: center; gap: 3px;'>
                                                                   <!-- insert your custom barcode setting your data in the GET parameter "data" -->
-                                                                  {{-- @foreach ($sku as $item)
-                                                                  <img alt='Barcode Generator TEC-IT' src='https://barcode.tec-it.com/barcode.ashx?data={{$item}}&translate-esc=on' />
-                                                                  @endforeach --}}
+                                                                  <img alt='Barcode Generator TEC-IT' src='https://barcode.tec-it.com/barcode.ashx?data={{$product->sku}}&translate-esc=on' />
                                                             </div>
-                                                            <div class="d-flex gap-2 mt-4">
-                                                                  <div>Product Name</div>
-                                                                  <div>:</div>
-                                                                  <div>{{ $product->name }}</div>
-                                                            </div>
-                                                      </div>
-                                                      <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-primary">Save changes</button>
                                                       </div>
                                                 </div>
                                           </div>
@@ -189,6 +186,9 @@
                               @endforeach
                         </tbody>
                   </table>
+                  <div class="px-2">
+                        {{ $products->links() }}
+                  </div>
             </div>
       </div>
 </div>

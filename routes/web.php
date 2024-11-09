@@ -36,7 +36,14 @@ Route::put('/products/categories/{id}', [CategoryController::class, 'update'])->
 // PRODUCT
 route::get('products', [ProductController::class, 'index'])->name('product.index');
 Route::post('/products/store', [ProductController::class, 'store'])->name('product.store');
-Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+Route::delete('/products/delete/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+Route::get('/products/{encryptedId}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/products/edit/{encryptedId}', [ProductController::class, 'update_product'])->name('product.update');
+Route::put('/products/{encryptedId}/update-image', [ProductController::class, 'update_image'])->name('product.image.update');
+Route::put('/products/{encryptedId}/update-product', [ProductController::class, 'update_product_action'])->name('product.update.action');
+
+// TRANSACTION
+route::get('new-transaction', [TransactionController::class, 'index'])->name('transaction.index');
 
 
 

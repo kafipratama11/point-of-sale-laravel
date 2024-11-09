@@ -1,13 +1,20 @@
 @extends('layouts.app')
 
 @push('styles')
-      @livewireStyles
-@endpush    
-
-@push('script')
-      @livewireScripts
+@livewireStyles
 @endpush
 
+@push('script')
+@livewireScripts
+@endpush
+
+@section('breadcrumb')
+<nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">New Transaction</li>
+      </ol>
+</nav>
+@endsection
 
 @section('main')
 <div class="d-flex main-container overflow-hidden">
@@ -18,37 +25,39 @@
             @include('partials.header')
             <div class="container-card-dashboard d-flex">
                   <div class="menu-container w-100">
-                        @livewire('product-table')
+                        {{-- @livewire('product-table') --}}
                         {{-- <div class="p-4 pb-0 row">
                               <input class="form-control rounded-0" id="search" type="text" placeholder="Search product..." aria-label=".form-control-sm example">
                         </div> --}}
-                        {{-- <div class="menu-wrapp p-4 mb-5 row" id="product-list">
+                        <div class="menu-wrapp p-4 mb-5 row" id="product-list">
                               <!-- Input Search -->
                               @foreach ($products as $product)
                               <div class="menu-card p-2 pt-3 bg-white px-3 col-xl-4 col-md-6 col-sm-12 border">
                                     <div class="d-flex gap-2 align-items-start">
-                                          <div class="text-black fw-medium product-name-wrapp lh-sm">{{ $product['product_name'] }}</div>
-                                          <div class="rounded-pill border px-2 menu-category text-secondary fw-medium me-auto">{{ $product['category'] }}</div>
-                                    </div>
-                                    <div class="product-price">
-                                          Rp{{ $product['price'] }}
-                                    </div>
-                                    <div class="stock d-flex gap-1 mt-2">
-                                          <div class="fw-normal text-secondary">Stock</div>
-                                          <div class="fw-semibold text-secondary me-auto">17</div>
-                                          <div>
-                                                <button class="text-white background-primary btn add-to-order">
-                                                      <i class="bi bi-plus-lg" style="font-size: 16px"></i>
-                                                </button>
-                                          </div>
+                                          <div class="text-black fw-medium product-name-wrapp lh-sm text-capitalize">{{ $product->name }}</div>
+                                          {{-- <div class="rounded-pill border px-2 menu-category text-secondary fw-medium me-auto">{{ $product->category ? $product->category->category_name : 'N/A' }}
+                                    </div> --}}
+                              </div>
+                              <div class="product-price">
+                                    Rp{{ $product->price }}
+                              </div>
+                              <div class="stock d-flex gap-1 mt-2">
+                                    <div class="fw-normal text-secondary">Stock</div>
+                                    <div class="fw-semibold text-secondary me-auto">{{ $product->stock }}</div>
+                                    <div>
+                                          <button class="text-white background-primary btn add-to-order" onclick="addToCart('{{ $product->name }}', {{ $product->price }})">
+                                                <i class="bi bi-plus-lg" style="font-size: 16px"></i>
+                                          </button>
                                     </div>
                               </div>
-                              @endforeach
-                        </div> --}}
+                        </div>
+                        @endforeach
                   </div>
-                  <div class="transaction-container px-3 bg-white">
+            </div>
+            <div class="transaction-container px-3 bg-white border-start">
+                  <form action="" method="post">
                         <div>
-                              <div class="d-flex border-top border-bottom">
+                              <div class="d-flex border-bottom">
                                     <div class="pt-2 pb-3">
                                           <div class="member-name fw-bold text-black">Jessica Kimberly</div>
                                           <div class="phone-member text-primary">0821-7414-0161</div>
@@ -60,42 +69,15 @@
                                           <div></div>
                                     </div>
                                     <div class="py-2 order-list" id="order-list">
-                                          <li class="list-group-item">Your selected products will appear here.</li>
-                                          {{-- <div class="list-menu-wrapp py-1">
-                                          <div class="d-flex gap-3">
-                                                <div>1</div>
-                                                <div class="me-auto">Chitos</div>
-                                                <div>Rp12.000,00</div>
-                                                <a href="" class="link-secondary">
-                                                      <i class="bi bi-x-lg"></i>
-                                                </a>
+                                          {{-- <li class="list-group-item">Your selected products will appear here.</li> --}}
+                                          <div class="cart" id="cart">
+                                                <div id="cart-items"></div>
                                           </div>
-                                    </div> --}}
-                                          {{-- <div class="list-menu-wrapp py-1">
-                                          <div class="d-flex gap-3">
-                                                <div>3</div>
-                                                <div class="me-auto">Mogu Mogu</div>
-                                                <div>Rp34.500,00</div>
-                                                <a href="" class="link-secondary">
-                                                      <i class="bi bi-x-lg"></i>
-                                                </a>
-                                          </div>
-                                    </div>
-                                    <div class="list-menu-wrapp py-1">
-                                          <div class="d-flex gap-3">
-                                                <div>7</div>
-                                                <div class="me-auto">Indomie Soto</div>
-                                                <div>Rp27.400,00</div>
-                                                <a href="" class="link-secondary">
-                                                      <i class="bi bi-x-lg"></i>
-                                                </a>
-                                          </div>
-                                    </div> --}}
                                     </div>
                                     <div class="mt-2 mb-5 total-wrapp">
                                           <div class="d-flex py-2 border-bottom total-order">
                                                 <div class="me-auto">Sub Total</div>
-                                                <div id="total-order-value"></div>
+                                                <div id="total-price">0</div>
                                           </div>
                                           <div class="d-flex py-2 border-bottom">
                                                 <div class="me-auto">Discount</div>
@@ -127,93 +109,93 @@
                                     </div>
                               </div>
                         </div>
-                  </div>
-                  <div class="accordion accordin-transaction fixed-bottom" id="accordionExample">
-                        <div class="accordion-item">
-                              <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                          Lihat Pesanan
-                                    </button>
-                              </h2>
-                              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                          <div class="transaction-container-accordin px-3 bg-white w-100">
-                                                <div class="d-flex border-top border-bottom">
-                                                      <div class="pt-2 pb-3">
-                                                            <div class="member-name fw-bold text-black">Jessica Kimberly</div>
-                                                            <div class="phone-member text-primary">0821-7414-0161</div>
+                  </form>
+            </div>
+            <div class="accordion accordin-transaction fixed-bottom" id="accordionExample">
+                  <div class="accordion-item">
+                        <h2 class="accordion-header">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Lihat Pesanan
+                              </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                              <div class="accordion-body">
+                                    <div class="transaction-container-accordin px-3 bg-white w-100">
+                                          <div class="d-flex border-top border-bottom">
+                                                <div class="pt-2 pb-3">
+                                                      <div class="member-name fw-bold text-black">Jessica Kimberly</div>
+                                                      <div class="phone-member text-primary">0821-7414-0161</div>
+                                                </div>
+                                          </div>
+                                          <div>
+                                                <div class="date-wrapp d-flex py-2 border-bottom">
+                                                      <div class="text-secondary">Tuesday, 07 March 2023</div>
+                                                      <div></div>
+                                                </div>
+                                                <div class="py-2 order-list" id="order-list">
+                                                      <div class="list-menu-wrapp py-1">
+                                                            <div class="d-flex gap-3">
+                                                                  <div>1</div>
+                                                                  <div class="me-auto">Chitos</div>
+                                                                  <div>Rp12.000,00</div>
+                                                                  <a href="" class="link-secondary">
+                                                                        <i class="bi bi-x-lg"></i>
+                                                                  </a>
+                                                            </div>
+                                                      </div>
+                                                      <div class="list-menu-wrapp py-1">
+                                                            <div class="d-flex gap-3">
+                                                                  <div>3</div>
+                                                                  <div class="me-auto">Mogu Mogu</div>
+                                                                  <div>Rp34.500,00</div>
+                                                                  <a href="" class="link-secondary">
+                                                                        <i class="bi bi-x-lg"></i>
+                                                                  </a>
+                                                            </div>
+                                                      </div>
+                                                      <div class="list-menu-wrapp py-1">
+                                                            <div class="d-flex gap-3">
+                                                                  <div>7</div>
+                                                                  <div class="me-auto">Indomie Soto</div>
+                                                                  <div>Rp27.400,00</div>
+                                                                  <a href="" class="link-secondary">
+                                                                        <i class="bi bi-x-lg"></i>
+                                                                  </a>
+                                                            </div>
                                                       </div>
                                                 </div>
-                                                <div>
-                                                      <div class="date-wrapp d-flex py-2 border-bottom">
-                                                            <div class="text-secondary">Tuesday, 07 March 2023</div>
-                                                            <div></div>
+                                                <div class="mt-2 mb-5 total-wrapp">
+                                                      <div class="d-flex py-2 border-bottom">
+                                                            <div class="me-auto">Sub Total</div>
+                                                            <div>Rp73.900,00</div>
                                                       </div>
-                                                      <div class="py-2 order-list" id="order-list">
-                                                            <div class="list-menu-wrapp py-1">
-                                                                  <div class="d-flex gap-3">
-                                                                        <div>1</div>
-                                                                        <div class="me-auto">Chitos</div>
-                                                                        <div>Rp12.000,00</div>
-                                                                        <a href="" class="link-secondary">
-                                                                              <i class="bi bi-x-lg"></i>
-                                                                        </a>
-                                                                  </div>
-                                                            </div>
-                                                            <div class="list-menu-wrapp py-1">
-                                                                  <div class="d-flex gap-3">
-                                                                        <div>3</div>
-                                                                        <div class="me-auto">Mogu Mogu</div>
-                                                                        <div>Rp34.500,00</div>
-                                                                        <a href="" class="link-secondary">
-                                                                              <i class="bi bi-x-lg"></i>
-                                                                        </a>
-                                                                  </div>
-                                                            </div>
-                                                            <div class="list-menu-wrapp py-1">
-                                                                  <div class="d-flex gap-3">
-                                                                        <div>7</div>
-                                                                        <div class="me-auto">Indomie Soto</div>
-                                                                        <div>Rp27.400,00</div>
-                                                                        <a href="" class="link-secondary">
-                                                                              <i class="bi bi-x-lg"></i>
-                                                                        </a>
-                                                                  </div>
+                                                      <div class="d-flex py-2 border-bottom">
+                                                            <div class="me-auto">Discount</div>
+                                                            <div>Rp13.900,00</div>
+                                                      </div>
+                                                      <div class="d-flex py-2 border-bottom">
+                                                            <div class="me-auto">PPN</div>
+                                                            <div>11%</div>
+                                                      </div>
+                                                      <div class="d-flex py-2 border-bottom">
+                                                            <div class="me-auto">Grand Total</div>
+                                                            <div class="fw-semibold">Rp67.000,00</div>
+                                                      </div>
+                                                      <div class="d-flex py-2 align-items-center border-bottom">
+                                                            <div class="me-auto">Payment Method</div>
+                                                            <div class="fw-semibold">
+                                                                  <select class="form-select" aria-label="Default select example" style="font-size: 12px">
+                                                                        <option value="1">Cash</option>
+                                                                        <option value="2">Dana</option>
+                                                                        <option value="3">Ovo</option>
+                                                                        <option value="3">Card</option>
+                                                                  </select>
                                                             </div>
                                                       </div>
-                                                      <div class="mt-2 mb-5 total-wrapp">
-                                                            <div class="d-flex py-2 border-bottom">
-                                                                  <div class="me-auto">Sub Total</div>
-                                                                  <div>Rp73.900,00</div>
-                                                            </div>
-                                                            <div class="d-flex py-2 border-bottom">
-                                                                  <div class="me-auto">Discount</div>
-                                                                  <div>Rp13.900,00</div>
-                                                            </div>
-                                                            <div class="d-flex py-2 border-bottom">
-                                                                  <div class="me-auto">PPN</div>
-                                                                  <div>11%</div>
-                                                            </div>
-                                                            <div class="d-flex py-2 border-bottom">
-                                                                  <div class="me-auto">Grand Total</div>
-                                                                  <div class="fw-semibold">Rp67.000,00</div>
-                                                            </div>
-                                                            <div class="d-flex py-2 align-items-center border-bottom">
-                                                                  <div class="me-auto">Payment Method</div>
-                                                                  <div class="fw-semibold">
-                                                                        <select class="form-select" aria-label="Default select example" style="font-size: 12px">
-                                                                              <option value="1">Cash</option>
-                                                                              <option value="2">Dana</option>
-                                                                              <option value="3">Ovo</option>
-                                                                              <option value="3">Card</option>
-                                                                        </select>
-                                                                  </div>
-                                                            </div>
-                                                      </div>
-                                                      <div class="d-flex gap-1 align-items-center justify-content-center w-100 pt-3 pb-4">
-                                                            <button type="button" class="btn background-primary w-100 text-white" style="font-size: 14px">Finish</button>
-                                                            <button type="button" class="btn w-100" style="background-color: #EBF4F6; font-size: 14px;">Cancel</button>
-                                                      </div>
+                                                </div>
+                                                <div class="d-flex gap-1 align-items-center justify-content-center w-100 pt-3 pb-4">
+                                                      <button type="button" class="btn background-primary w-100 text-white" style="font-size: 14px">Finish</button>
+                                                      <button type="button" class="btn w-100" style="background-color: #EBF4F6; font-size: 14px;">Cancel</button>
                                                 </div>
                                           </div>
                                     </div>
@@ -222,6 +204,7 @@
                   </div>
             </div>
       </div>
+</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -234,6 +217,104 @@
                   $('#collapseExample').collapse('hide');
             });
       });
+      let cart = [];
+      let totalPrice = 0;
+
+
+      function formatRupiah(number) {
+            return new Intl.NumberFormat('id-ID', {
+                  style: 'currency'
+                  , currency: 'IDR'
+            , }).format(number);
+      }
+
+      // Fungsi untuk menambahkan produk ke keranjang
+      function addToCart(productName, productPrice) {
+            const productIndex = cart.findIndex(item => item.name === productName);
+
+            if (productIndex !== -1) {
+                  cart[productIndex].qty += 1;
+            } else {
+                  cart.push({
+                        name: productName
+                        , price: productPrice
+                        , qty: 1
+                  });
+            }
+
+            totalPrice += productPrice;
+            updateCart();
+      }
+
+      // Fungsi untuk menghapus produk dari keranjang
+      function removeFromCart(index) {
+            // Kurangi total harga
+            totalPrice -= cart[index].price;
+
+            // Hapus item dari array cart
+            cart.splice(index, 1);
+
+            // Update tampilan cart di DOM
+            updateCart();
+      }
+
+      // Fungsi untuk menambah qty lewat cart
+      function increaseQty(index) {
+            cart[index].qty += 1;
+            totalPrice += cart[index].price;
+            updateCart();
+      }
+
+      // Fungsi untuk mengurangi qty lewat cart
+      function decreaseQty(index) {
+            const product = cart[index];
+
+            if (product.qty > 1) {
+                  product.qty -= 1;
+                  totalPrice -= product.price;
+            } else {
+                  // Jika qty = 1, hapus produk
+                  totalPrice -= product.price;
+                  cart.splice(index, 1);
+            }
+
+            updateCart();
+      }
+
+      // Fungsi untuk menampilkan isi keranjang
+      function updateCart() {
+            const cartItemsDiv = document.getElementById('cart-items');
+            const totalPriceSpan = document.getElementById('total-price');
+
+            // Kosongkan isi keranjang sebelum diperbarui
+            cartItemsDiv.innerHTML = '';
+
+            // Tampilkan semua item di cart
+            cart.forEach((item, index) => {
+                  const cartItemDiv = document.createElement('div');
+                  cartItemDiv.className = 'cart-item';
+
+                  cartItemDiv.innerHTML = `
+                  <div class="list-menu-wrapp py-1">
+                        <div class="d-flex gap-3">
+                              <div class="d-flex gap-2 align-items-center">
+                                    <button class="btn btn-qty-cart p-0 m-0 border-0 text-secondary" onclick="decreaseQty(${index})">-</button>
+                                    <div>${item.qty}</div>
+                                    <button class="btn btn-qty-cart p-0 m-0 border-0 text-secondary" onclick="increaseQty(${index})">+</button>
+                              </div>
+                              <div class="me-auto text-capitalize">${item.name}</div>
+                              <div>${formatRupiah(item.price * item.qty)}</div>
+                              <button class="btn p-0 m-0 border-0 text-secondary" onclick="removeFromCart(${index})"><i class="bi bi-x-lg"></i></button>
+                        </div>
+                  </div>
+                  `;
+
+                  cartItemsDiv.appendChild(cartItemDiv);
+            });
+
+            // Update total harga
+            totalPriceSpan.textContent = formatRupiah(totalPrice);
+      }
 
 </script>
 {{-- <script>

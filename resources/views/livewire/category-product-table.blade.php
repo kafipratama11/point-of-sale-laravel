@@ -1,6 +1,6 @@
 <div>
       <div class="px-4 mt-3">
-            <div class="bg-white rounded border">
+            <div class="bg-white rounded border mb-2">
                   <div class="px-3 py-4 rounded">
                         <div class="fw-medium mb-2">Inventory Items</div>
                         <div class="container-heading-table">

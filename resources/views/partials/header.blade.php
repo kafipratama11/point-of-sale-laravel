@@ -14,6 +14,7 @@
                   <div class="section-name-header me-auto">
                         {{ request()->is('overview') ? 'Overview' : '' }}
                         {{ request()->is('products') ? 'Products' : '' }}
+                        {{ request()->routeIs('product.show', 'product.update') ? 'Products' : '' }}
                         {{ request()->is('products/categories') ? 'Products Category' : '' }}
                         {{ request()->is('transaction') ? 'Transaction' : '' }}
                         {{ request()->is('new-transaction') ? 'New Transaction' : '' }}
@@ -46,11 +47,6 @@
             </div>
       </nav>
       <div class="px-4 pt-2 bg-white d-flex align-items-center border-bottom">
-            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#" class="link-underline link-underline-opacity-0 link-body-tertiary">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Library</li>
-                  </ol>
-            </nav>
+            @yield('breadcrumb')
       </div>
 </header>

@@ -1,12 +1,21 @@
 @extends('layouts.app')
 
 @push('styles')
-      @livewireStyles
+@livewireStyles
 @endpush
 
 @push('script')
-      @livewireScripts
+@livewireScripts
 @endpush
+
+@section('breadcrumb')
+<nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('product.index') }}" class="link-underline link-underline-opacity-0">Products</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Categories</li>
+      </ol>
+</nav>
+@endsection
 
 @section('main')
 <div class="d-flex main-container">

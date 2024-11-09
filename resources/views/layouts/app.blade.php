@@ -4,8 +4,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Indomerit</title>
-      <link rel="stylesheet" href="../css/main.css">
-      <link rel="stylesheet" href="../css/default.css">
+      <link rel="stylesheet" href="../../../../css/main.css">
+      <link rel="stylesheet" href="../../../../css/default.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
       <link href="https://cdn.datatables.net/v/bs5/dt-2.1.6/datatables.min.css" rel="stylesheet">
       <link rel="preconnect" href="https://fonts.googleapis.com">

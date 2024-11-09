@@ -1,5 +1,5 @@
 <aside class="sidebar-admin border-end bg-white sticky-top h-100">
-      <div class="p-3 ps-2 pe-0 overflow-auto">
+      <div class="p-3 ps-2 pe-0 ">
             <div class="sidebar-brand mb-5 d-flex align-items-center gap-3 ps-3">
                   <div class="profile-picture-sidebar ratio-1x1 rounded-circle overflow-hidden">
                         <img src="../../../img/iu.jpg" alt="">
@@ -43,8 +43,8 @@
                         </div>
                   </a>
                   <div class="fw-medium mt-3 ps-3" style="font-size: 14px">Transaction</div>
-                  {{-- <a href="{{ url('/new-transaction') }}" class="link-underline link-underline-opacity-0"> --}}
-                  <a href="https://z6d7d0pf-8000.asse.devtunnels.ms/new-transaction" class="link-underline link-underline-opacity-0">
+                  <a href="{{ route('transaction.index') }}" class="link-underline link-underline-opacity-0">
+                  {{-- <a href="https://z6d7d0pf-8000.asse.devtunnels.ms/new-transaction" class="link-underline link-underline-opacity-0"> --}}
                         <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('new-transaction') ? 'active' : '' }}">
                               <i class="bi bi-cart"></i>
                               <div>New Transaction</div>
@@ -80,9 +80,9 @@
                         </div>
                   </a>
                   <div class="fw-medium mt-3 ps-3" style="font-size: 14px">Inventory</div>
-                  {{-- <a href="{{ url('/products') }}" class="link-underline link-underline-opacity-0"> --}}
-                  <a href="https://z6d7d0pf-8000.asse.devtunnels.ms/products" class="link-underline link-underline-opacity-0">
-                        <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('products') ? 'active' : '' }} {{ request()->is('products/categories') ? 'active' : '' }}">
+                  <a href="{{ route('product.index') }}" class="link-underline link-underline-opacity-0">
+                  {{-- <a href="https://z6d7d0pf-8000.asse.devtunnels.ms/products" class="link-underline link-underline-opacity-0"> --}}
+                        <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->routeIs('product.show', 'product.index', 'category.index', 'product.update') ? 'active' : '' }}">
                               <i class="bi bi-box"></i>
                               <div>Products</div>
                         </div>
