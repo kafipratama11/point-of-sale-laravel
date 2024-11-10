@@ -13,7 +13,7 @@ class ProductController extends Controller
     //
     public function index(){
         $categories = ProductCategories::all();
-        return view('admin.products', compact('category'));
+        return view('admin.products', compact('categories'));
     }
     
     public function show($encryptedId)

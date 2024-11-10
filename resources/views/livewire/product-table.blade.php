@@ -146,7 +146,7 @@
                                           {{ $product->stock }}
                                     </td>
                                     <td class="text-capitalize">{{ $product->category ? $product->category->category_name : 'N/A' }}</td>
-                                    <td>{{ $product->price }}</td>
+                                    <td>{{ 'Rp ' . number_format($product->price, 0, ',', '.') }}</td>
                                     <td>
                                           <div class="btn-group">
                                                 <button type="button" class="btn dropdown-toggle border-0" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 12px">
