@@ -45,21 +45,21 @@
                   <div class="fw-medium mt-3 ps-3" style="font-size: 14px">Transaction</div>
                   <a href="{{ route('transaction.index') }}" class="link-underline link-underline-opacity-0">
                   {{-- <a href="https://z6d7d0pf-8000.asse.devtunnels.ms/new-transaction" class="link-underline link-underline-opacity-0"> --}}
-                        <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('new-transaction') ? 'active' : '' }}">
+                        <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->routeIs('transaction.index') ? 'active' : '' }}">
                               <i class="bi bi-cart"></i>
                               <div>New Transaction</div>
                         </div>
                   </a>
-                  {{-- <a href="{{ url('/transaction') }}" class="link-underline link-underline-opacity-0"> --}}
-                  <a href="https://z6d7d0pf-8000.asse.devtunnels.ms/transaction" class="link-underline link-underline-opacity-0">
-                        <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('transaction') ? 'active' : '' }}">
+                  <a href="{{ route('transaction.history') }}" class="link-underline link-underline-opacity-0">
+                  {{-- <a href="https://z6d7d0pf-8000.asse.devtunnels.ms/transaction" class="link-underline link-underline-opacity-0"> --}}
+                        <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->routeIs('transaction.history', 'transaction.show') ? 'active' : '' }}">
                               <i class="bi bi-cash-stack"></i>
                               <div>Transaction History</div>
                         </div>
                   </a>
                   <div class="fw-medium mt-3 ps-3" style="font-size: 14px">Purchasing</div>
-                  {{-- <a href="{{ url('/purchase-request') }}" class="link-underline link-underline-opacity-0"> --}}
-                  <a href="https://z6d7d0pf-8000.asse.devtunnels.ms/purchase-request" class="link-underline link-underline-opacity-0">
+                  <a href="{{ route('request.index') }}" class="link-underline link-underline-opacity-0">
+                  {{-- <a href="https://z6d7d0pf-8000.asse.devtunnels.ms/purchase-request" class="link-underline link-underline-opacity-0"> --}}
                         <div class="d-flex gap-3 align-items-center background-primary-hover sidebar-link ps-4 p-2 px-3 {{ request()->is('purchase-request') ? 'active' : '' }}">
                               <i class="bi bi-box-arrow-up-right"></i>
                               <div>Purchase Request</div>

@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        //
+        Schema::create('transaction_counters', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->unsignedBigInteger('last_number')->default(0);
+            $table->string('month', 2); // Menyimpan bulan
+            $table->string('year', 2);  // Menyimpan tahun
             $table->timestamps();
-        });
+        });        
     }
 
     /**
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        //
     }
 };

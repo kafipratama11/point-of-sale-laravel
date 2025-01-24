@@ -86,10 +86,10 @@ function updateCart() {
                         <button class="btn p-0 m-0 border-0 text-secondary" onclick="removeFromCart(${index})"><i class="bi bi-x-lg"></i></button>
                   </div>
             </div>
-            <input type="number" class="form-control" value="${item.id}" name="cart[${index}][product_id]" hidden>
-            <input type="number" class="form-control" value="${item.qty}" name="cart[${index}][quantity]" hidden>
-            <input type="number" class="form-control" value="${item.price}" name="cart[${index}][price_at_sale]" hidden>
-            <input type="number" class="form-control" value="${item.price}" name="cart[${index}][price_at_sale]" hidden>
+            <input type="number" class="form-control" value="${item.id}" name="product_id[]" hidden>
+            <input type="number" class="form-control" value="${item.qty}" name="quantity[]" hidden>
+            <input type="number" class="form-control" value="${item.price}" name="price_at_sale[]" hidden>
+            <input type="number" class="form-control" value="${totalPrice}" name="total_price" hidden>
             `;
 
             cartItemsDiv.appendChild(cartItemDiv);

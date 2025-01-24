@@ -7,6 +7,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RequestController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -44,6 +45,14 @@ Route::put('/products/{encryptedId}/update-product', [ProductController::class, 
 
 // TRANSACTION
 route::get('new-transaction', [TransactionController::class, 'index'])->name('transaction.index');
+route::get('transaction', [TransactionController::class, 'history'])->name('transaction.history');
+route::post('/new-transaction/store', [TransactionController::class, 'store'])->name('transaction.store');
+Route::get('/transaction/{encryptedId}', [TransactionController::class, 'show'])->name('transaction.show');
+Route::delete('/transaction/delete/{encryptedId}', [TransactionController::class, 'destroy'])->name('transaction.destroy');
+Route::delete('/transactions/delete', [TransactionController::class, 'delete_checkbox'])->name('transaction.destroy.checkbox');
+
+// PURCHASING
+Route::get('purchase-request', [RequestController::class, 'index'])->name('request.index');
 
 
 

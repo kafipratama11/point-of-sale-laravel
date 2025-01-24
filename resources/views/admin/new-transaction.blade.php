@@ -17,6 +17,17 @@
 @endsection
 
 @section('main')
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="toastSuccess" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                  <div class="toast-body">
+                        Transaksi berhasil!
+                  </div>
+                  <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+      </div>
+</div>
+
 <div class="d-flex main-container overflow-hidden">
       <div class="sidebar">
             @include('partials.sidebar')
@@ -28,11 +39,18 @@
                         <div class="menu-wrapp p-4 mb-5 row" id="product-list">
                               @foreach ($products as $product)
                               <div class="menu-card p-2 pt-3 bg-white px-3 col-xxl-3 col-xl-4 col-md-6 col-sm-12" style="border: 0.5px solid #f5f5f5;">
-                                    <div class="d-flex gap-2 align-items-start">
-                                          <div class="text-black fw-medium product-name-wrapp lh-sm text-capitalize">{{ $product->name }}</div>
-                                    </div>
-                                    <div class="product-price">
-                                          {{ 'Rp ' . number_format($product->price, 0, ',', '.') }}
+                                    <div class="d-flex gap-2">
+                                          {{-- <div class="img-product-wrapp-transaction justify-content-center d-flex">
+                                                <img src="{{ asset('storage/' . $product->image) }}" alt="">
+                                          </div> --}}
+                                          <div>
+                                                <div class="d-flex gap-2 align-items-start">
+                                                      <div class="text-black fw-medium product-name-wrapp lh-sm text-capitalize">{{ $product->name }}</div>
+                                                </div>
+                                                <div class="product-price">
+                                                      {{ 'Rp ' . number_format($product->price, 0, ',', '.') }}
+                                                </div>
+                                          </div>
                                     </div>
                                     <div class="stock d-flex gap-1 mt-2">
                                           <div class="fw-normal text-secondary">Stock</div>
@@ -48,7 +66,8 @@
                         </div>
                   </div>
                   <div class="transaction-container px-3 bg-white border-start">
-                        <form action="" method="post">
+                        <form action="{{ route('transaction.store') }}" method="post">
+                              @csrf
                               <div>
                                     <div class="d-flex border-bottom">
                                           <div class="pt-2 pb-3">
@@ -58,7 +77,7 @@
                                     </div>
                                     <div>
                                           <div class="date-wrapp d-flex py-2 border-bottom">
-                                                <div class="text-secondary">Tuesday, 07 March 2023</div>
+                                                <div class="text-secondary">{{ $formattedToday }}</div>
                                                 <div></div>
                                           </div>
                                           <div class="py-2 order-list" id="order-list">
@@ -147,7 +166,7 @@
                                                             <div class="d-flex py-2 align-items-center border-bottom">
                                                                   <div class="me-auto">Payment Method</div>
                                                                   <div class="fw-semibold">
-                                                                        <select class="form-select" aria-label="Default select example" style="font-size: 12px">
+                                                                        <select class="form-select" aria-label="Default select example" name="payment_method" style="font-size: 12px">
                                                                               <option value="cash">Cash</option>
                                                                               <option value="e-wallet">E-Wallet</option>
                                                                               <option value="card">Card</option>
@@ -170,6 +189,14 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script>
+      document.addEventListener("DOMContentLoaded", function() {
+            @if(session('success'))
+            const toastSuccess = new bootstrap.Toast(document.getElementById('toastSuccess'));
+            toastSuccess.show();
+            @endif
+      });
+</script>
 <script>
       $(document).ready(function() {
             $('#collapseExample').on('show.bs.collapse', function() {

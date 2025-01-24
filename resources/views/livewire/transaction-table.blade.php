@@ -1,19 +1,11 @@
-@extends('layouts.app')
-@section('main')
-<div class="d-flex main-container">
-      <div class="sidebar">
-            @include('partials.sidebar')
-      </div>
-      <div class="w-100">
-            @include('partials.header')
-            <div class="px-4 d-flex mt-3">
-                  <div class="me-auto fw-medium">Dashboard</div>
-                  <button type="button" class="btn background-primary text-white btn-add"><i class="bi bi-plus-lg"></i> New Request</button>
-            </div>
+<div>
+      <form action="{{ route('transaction.destroy.checkbox')}}" method="POST">
+            @csrf
+            @method('delete')
             <div class="px-4 mt-3">
                   <div class="bg-white rounded border">
                         <div class="px-3 py-4 rounded">
-                              <div class="fw-medium mb-2">Inventory Items</div>
+                              <div class="fw-medium mb-2">Transactions</div>
                               <div class="container-heading-table">
                                     <div class="me-auto">
                                           <div class="input-group search-products mb-1">
@@ -21,7 +13,12 @@
                                                 <input type="text" class="form-control border-start-0" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1" style="font-size: 14px">
                                           </div>
                                     </div>
-                                    <div class="d-flex gap-2">
+                                    <div class="d-flex gap-2" style="display: none;">
+                                          <div id="delete-button-container">
+                                                <button class="m-0 p-0 border-0 bg-danger" type="submit">
+                                                      <div class="border px-2 py-1 btn-table text-light"><i class="bi bi-trash3"></i> Delete</div>
+                                                </button>
+                                          </div>
                                           <div>
                                                 <a href="#collapseExample" class="link-underline link-underline-opacity-0" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
                                                       <div class="border px-2 py-1 btn-table"><i class="bi bi-funnel"></i> Filter</div>
@@ -42,14 +39,6 @@
                                                                   </div>
                                                                   <div>
                                                                         <label for="status" class="form-label">Status</label>
-                                                                        {{-- @foreach ($statuses as $status)
-                                                                        <div class="form-check">
-                                                                              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                                                              <label class="form-check-label" for="defaultCheck1">
-                                                                                    {{ $status->status_name }}
-                                                                              </label>
-                                                                        </div>
-                                                                        @endforeach --}}
                                                                   </div>
                                                             </div>
                                                             <hr class="m-0 p-0">
@@ -121,51 +110,48 @@
                                           <tr>
                                                 <th scope="col">
                                                       <div class="form-check form-check-inline d-flex w-100 h-100 align items-center">
-                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" style="height: 15px; width: 15px;">
+                                                            <input class="form-check-input" type="checkbox" id="select-all" value="option1" style="height: 15px; width: 15px;">
                                                       </div>
                                                 </th>
-                                                <th scope="col">PR Number</th>
-                                                <th scope="col">Quantity</th>
+                                                <th scope="col">Transaction Number</th>
                                                 <th scope="col">Date</th>
-                                                <th scope="col">Requestor</th>
-                                                <th scope="col">Status</th>
+                                                <th scope="col">Quantity</th>
+                                                <th scope="col">Total</th>
+                                                <th scope="col">Payment Method</th>
+                                                <th scope="col">Cashier</th>
                                           </tr>
-                                    </thead>  
+                                    </thead>
                                     <tbody>
+                                          @php
+                                          use Carbon\Carbon;
+                                          @endphp
+                                          @foreach ($transactions as $index => $transaction)
                                           <tr>
                                                 <th scope="row">
                                                       <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                            <input class="form-check-input select-item" type="checkbox" name="ids[]" value="{{ $transaction->id }}" id="flexCheckDefault">
                                                             <label class="form-check-label" for="flexCheckDefault">
-                                                                  1
+                                                                  {{ $transactions->firstItem() + $index }}
                                                             </label>
                                                       </div>
                                                 </th>
                                                 <td>
-                                                      <a class="link-offset-2 link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="">PR-09240001</a>
+                                                      <a class="link-offset-2 link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="{{ route('transaction.show', ['encryptedId' => encrypt($transaction->id)]) }}">{{ $transaction->transaction_code }}</a>
                                                 </td>
-                                                <td>5</td>
-                                                <td>05 November 2024</td>
-                                                <td>Cashier 1</td>
-                                                <td>Pending</td>
+                                                <td>{{ Carbon::parse($transaction->created_at)->translatedFormat('d F Y') }}</td>
+                                                <td>{{ $transaction->items->sum('quantity') }}</td>
+                                                <td>Rp {{ number_format($transaction->total_price, 0, ',', '.') }}</td>
+                                                <td class="text-capitalize">{{ $transaction->payment_method }}</td>
+                                                <td>Kafi</td>
                                           </tr>
+                                          @endforeach
                                     </tbody>
                               </table>
+                              <div class="px-2">
+                                    {{ $transactions->links() }}
+                              </div>
                         </div>
                   </div>
             </div>
-      </div>
+      </form>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script>
-      $(document).ready(function() {
-            $('#collapseExample').on('show.bs.collapse', function() {
-                  $('#collapseSort').collapse('hide');
-            });
-            $('#collapseSort').on('show.bs.collapse', function() {
-                  $('#collapseExample').collapse('hide');
-            });
-      });
-</script>
-@endsection
